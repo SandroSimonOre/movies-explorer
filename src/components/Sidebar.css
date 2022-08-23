@@ -3,3 +3,13 @@
     border-color: green;
     border-style: solid;
 }
+
+.menu-item {
+    display: flex;
+}
+
+.menu-item :first-child{
+    padding-top: 18px;
+    width: 50px;
+    font-size: 40px;
+}

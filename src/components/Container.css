@@ -6,7 +6,7 @@
     grid-template-rows: 1fr 7fr;
     grid-template-areas: 
         "header header header"
-        "sidebar main main";
+        "sidebar sidebar main";
     gap: 1px;
     /*justify-content:flex-start;*/
     border-style: dashed;

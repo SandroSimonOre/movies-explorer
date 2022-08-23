@@ -1,8 +1,8 @@
 import './Tag.css'
-function Tag(){
+function Tag(props){
     return(
         <div className='tag'>
-            <p>Título</p>
+            <p>{props.title}</p>
         </div>
     )
 }
