@@ -1,0 +1,8 @@
+.categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /*background-color: aquamarine;*/
+    border-color: blue;
+    border-style: solid;
+}

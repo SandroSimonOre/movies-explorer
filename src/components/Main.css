@@ -1,0 +1,29 @@
+.main {
+    grid-area: main;
+    /* border-color: salmon;
+    border-style: solid; */
+    display: flex;
+    /*justify-content: flex-start;*/
+    /*grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;*/
+
+    flex-direction: column;
+    
+}
+/*
+
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: red;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+  }
+
+  */

@@ -1,0 +1,14 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 13fr;
+    grid-template-rows: 1fr 7fr;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main";
+    gap: 1px;
+    /*justify-content:flex-start;*/
+    border-style: dashed;
+    border-color: blueviolet;
+}

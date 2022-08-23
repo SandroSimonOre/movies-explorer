@@ -1,0 +1,6 @@
+.header {
+    grid-area: header;
+    border-color: brown;
+    border-style: solid;
+    height: 10vh;
+}
