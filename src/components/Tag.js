@@ -2,7 +2,7 @@ import './Tag.css'
 function Tag(props){
     return(
         <div className='tag'>
-            <p>{props.title}</p>
+            <p>{props.title}</p> 
         </div>
     )
 }

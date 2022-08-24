@@ -4,4 +4,8 @@
     border-radius: 10px;
     /*color: white;*/
     /*border-style: solid;*/
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 15px 0px 15px;
+    align-content: center;
 }
