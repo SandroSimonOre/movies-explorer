@@ -1,10 +1,12 @@
 import './Header.css';
+import Searcher from './Searcher';
 
-
-function Header(){
+const Header = () => {
     return (
         <div className='header'>
+            <Searcher />
         </div>
+        
     )
 }
 

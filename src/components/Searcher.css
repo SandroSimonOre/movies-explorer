@@ -1,0 +1,31 @@
+.searcher {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 40px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+}
+
+.searcher input {
+    height: 95%;
+    width: 90%;
+    border: none;
+    outline: none;
+    
+}
+
+.searcher .search-icon {
+
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/945px-Vector_search_icon.svg.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    width: 18px;
+    height: 18px;
+    /* padding: 6px; */
+    align-self: center;
+    /* border-color: black;
+    border-width: 1px;
+    border-style: solid; */    
+}

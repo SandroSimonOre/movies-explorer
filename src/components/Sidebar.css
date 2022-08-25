@@ -1,6 +1,7 @@
 .sidebar {
     grid-area: sidebar;
-
+    border-style: solid;
+    border-color: purple;
 }
 
 .menu-item {

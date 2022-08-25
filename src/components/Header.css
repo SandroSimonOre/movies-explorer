@@ -1,6 +1,9 @@
 .header {
     grid-area: header;
-    border-color: brown;
-    border-style: solid;
     height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
 }
