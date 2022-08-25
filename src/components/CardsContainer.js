@@ -1,24 +1,23 @@
 import './CardsContainer.css';
 import Card from './Card.js';
-import {getMovies} from '../services';
-import { useEffect } from 'react';
+import useGetMovies from '../hooks/useGetMovies';
+const CardsContainer = () => {
 
-function CardsContainer(){
-
-    console.log(getMovies())
-
-    useEffect(()=> {
-        console.log('hello')   
-    }, [])
-
+    const movies = useGetMovies();
+    //console.log(movies)
     return(
         <div className='cards-container'>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            
+            {   
+                movies ?
+                    (   
+                        
+                        movies.map(movie => {
+                            return <Card movie={movie} key={movie.id} />
+                        })
+                    ) : null
+            }
+            
         </div>
     )
 }

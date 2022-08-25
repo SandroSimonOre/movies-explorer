@@ -1,8 +1,10 @@
 .categories {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: flex-start;
+ */    /* align-items: center; */
+    /* flex-wrap: wrap; */
+    overflow: hidden;
     align-items: center;
-    /*background-color: aquamarine;*/
-    border-color: blue;
-    border-style: solid;
+
+    width: 800px;
 }

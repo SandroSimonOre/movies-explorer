@@ -1,11 +1,15 @@
 import './Card.css';
 
-function Card(){
+function Card(props){
+    
+    const { poster_path } = props.movie;
     return(
         <div className='card'>
-            <h3>I'm a card</h3>
+
+            <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
+
         </div>
     )
 }
 
-export default Card;
+export default Card; 

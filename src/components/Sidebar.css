@@ -1,7 +1,6 @@
 .sidebar {
     grid-area: sidebar;
-    border-color: green;
-    border-style: solid;
+
 }
 
 .menu-item {

@@ -8,7 +8,5 @@
         "header header header"
         "sidebar sidebar main";
     gap: 1px;
-    /*justify-content:flex-start;*/
-    border-style: dashed;
-    border-color: blueviolet;
+    
 }

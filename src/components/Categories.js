@@ -1,16 +1,22 @@
-
 import './Categories.css';
-import Tag from './Tag'
+import Tag from './Tag';
+import useGetCategories from '../hooks/useGetCategories';
 
 function Categories(){
+    const categories = useGetCategories();
+    //console.log(categories)
     return (
         <div className='categories'>
-            <Tag title='La vida es bella' />
-            <Tag title= 'Interstellar' />
-            <Tag title = 'The Godfather' />
-            <Tag title = 'Titanic' />
-            <Tag title = 'Road to pertition' />
-            <Tag title = 'The Jocker' />
+
+            {   
+                categories ?
+                    (   
+                        
+                        categories.map(category => {
+                            return <Tag category={category} key={category.id} />
+                        })
+                    ) : null
+            }
         </div>
     )
 }
