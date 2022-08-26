@@ -1,11 +1,16 @@
 .sidebar {
     grid-area: sidebar;
+    width: 100%;
+
     border-style: solid;
     border-color: purple;
+    border-width: 1px;
 }
 
 .menu-item {
     display: flex;
+
+    
 }
 
 .menu-item :first-child{

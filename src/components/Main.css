@@ -1,14 +1,18 @@
 .main {
     grid-area: main;
+    width: 100%;
     /* border-color: salmon;
     border-style: solid; */
-    display: flex;
     /*justify-content: flex-start;*/
     /*grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;*/
-
+    
+    display: flex;
     flex-direction: column;
-    width: 100%;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
     
 }
 /*

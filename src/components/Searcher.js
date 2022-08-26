@@ -1,4 +1,4 @@
-import './Searcher.css'
+import './Searcher.scss'
 const Searcher = () => {
    return (
     <div className='searcher'>

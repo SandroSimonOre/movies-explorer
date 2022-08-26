@@ -1,10 +1,20 @@
 .categories {
     display: flex;
-    /* justify-content: flex-start;
- */    /* align-items: center; */
-    /* flex-wrap: wrap; */
-    overflow: hidden;
+    /* flex-wrap: nowrap; */
+        /* width: auto; */
+    /* justify-content: flex-start;*/
     align-items: center;
+    /* flex-wrap: wrap; */
+    /* overflow: hidden; */
+    /* align-items: center; */
+    position: sticky;
+    top:0;
+    background-color: white;
 
-    width: 800px;
+    /* overflow-x:visible; */
+
+    border-color: yellow;
+    border-style: solid;
+    border-width: 0.3px;
+
 }

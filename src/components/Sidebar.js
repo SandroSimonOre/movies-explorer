@@ -1,13 +1,14 @@
-import './Sidebar.css'
+import './Sidebar.scss'
 
 import { FiTrendingUp } from 'react-icons/fi';
 import { BsHeart } from "react-icons/bs";
 import { AiOutlineCoffee } from "react-icons/ai";
 
-function Sidebar(){
+const Sidebar = () => {
     return (
+        
         <div className='sidebar'>
-            <div className='menu-item'>
+            <div className='menu-item' onClick={()=>alert('Click')}>
                 <FiTrendingUp />
                 <p>Trending</p>
             </div>

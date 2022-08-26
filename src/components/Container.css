@@ -3,10 +3,17 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr 13fr;
-    grid-template-rows: 1fr 7fr;
+    grid-template-rows: 1fr 11fr;
     grid-template-areas: 
         "header header header"
         "sidebar sidebar main";
-    gap: 1px;
+    gap: 10px;
     
 }
+
+.container-express {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main";
+ }
