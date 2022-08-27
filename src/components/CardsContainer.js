@@ -1,24 +1,27 @@
 import './CardsContainer.css';
-import Card from './Card.js';
+import Card from './Card';
 import useGetMovies from '../hooks/useGetMovies';
-const CardsContainer = () => {
 
+const CardsContainer = (props) => {
+    const {title} = props;
     const movies = useGetMovies();
-    //console.log(movies)
     return(
-        <div className='cards-container'>
-            
-            {   
-                movies ?
-                    (   
-                        
+        <>
+            <h1>{title}</h1>
+            <div className='cards-container'>
+                
+                {   
+                    movies && (   
+                            
                         movies.map(movie => {
                             return <Card movie={movie} key={movie.id} />
                         })
-                    ) : null
-            }
+                    )
+                }
+                
+            </div>
             
-        </div>
+        </>
     )
 }
 

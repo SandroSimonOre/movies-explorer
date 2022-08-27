@@ -4,18 +4,17 @@ import useGetCategories from '../hooks/useGetCategories';
 
 function Categories(){
     const categories = useGetCategories();
-    //console.log(categories)
+
     return (
         <div className='categories'>
 
             {   
-                categories ?
-                    (   
+                categories && (   
                         
-                        categories.map(category => {
-                            return <Tag category={category} key={category.id} />
-                        })
-                    ) : null
+                    categories.map(category => {
+                        return <Tag category={category} key={category.id} />
+                    })
+                )
             }
         </div>
     )

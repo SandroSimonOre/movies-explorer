@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 import Searcher from './Searcher';
 import MenuButton from './MenuButton';
 
