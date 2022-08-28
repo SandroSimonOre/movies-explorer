@@ -1,4 +1,4 @@
-import './CardsContainer.css';
+import './CardsContainer.scss';
 import Card from './Card';
 import useGetMovies from '../hooks/useGetMovies';
 

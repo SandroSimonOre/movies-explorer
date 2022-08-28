@@ -1,7 +1,7 @@
 
 import Categories from './Categories.js';
 import CardsContainer from './CardsContainer.js';
-import './Main.css';
+import './Main.scss';
 const Main = () => {
     return (
         <div className='main'>

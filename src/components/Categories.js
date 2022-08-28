@@ -22,7 +22,7 @@ function Categories(){
                 }
             </div>
             <div className='arrow right-arrow'>
-            &#8250;
+                &#8250;
             </div>
         </div>
     )

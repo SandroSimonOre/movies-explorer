@@ -5,10 +5,17 @@ import { BsHeart } from "react-icons/bs";
 import { AiOutlineCoffee } from "react-icons/ai";
 
 const Sidebar = () => {
+
+    // Esto solo es una prueba, ELIMINAR luego.
+    const showInfo = () => {
+        const elemento = document.getElementById('test')
+        console.log(getComputedStyle(elemento))
+    }
+
     return (
         
-        <div className='sidebar'>
-            <div className='menu-item' onClick={()=>alert('Click')}>
+        <div className='sidebar' id='test'>
+            <div className='menu-item' onClick={showInfo}>
                 <FiTrendingUp />
                 <p>Trending</p>
             </div>

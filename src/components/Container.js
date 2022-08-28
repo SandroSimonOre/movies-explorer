@@ -2,7 +2,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Main from './Main';
 
-import './Container.css'
+import './Container.scss'
 
 const Container = () => {
     return (
