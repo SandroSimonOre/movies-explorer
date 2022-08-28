@@ -1,4 +1,4 @@
-import './Tag.css'
+import './Tag.scss'
 function Tag(props){
     const {name} = props.category;
     return(
