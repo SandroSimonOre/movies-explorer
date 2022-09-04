@@ -24,6 +24,9 @@
             align-items: center;
             display: flex;
             /* transform: translateX(-70%); */
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
 
         }
     }
@@ -44,6 +47,10 @@
         background-color: rgba(0,0,0,0.65);
         color: white;
         user-select: none;
+    }
+
+    .hidden {
+        display: none;
     }
     
 }

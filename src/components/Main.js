@@ -6,8 +6,7 @@ const Main = () => {
     return (
         <div className='main'>
             <Categories />
-            
-            <CardsContainer title='My favorite movies' />
+            <CardsContainer />
         </div>
     )
 }

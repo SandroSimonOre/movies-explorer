@@ -3,11 +3,11 @@ import Card from './Card';
 import useGetMovies from '../hooks/useGetMovies';
 
 const CardsContainer = (props) => {
-    const {title} = props;
+    
     const movies = useGetMovies();
     return(
         <>
-            <h1>{title}</h1>
+            
             <div className='cards-container'>
                 
                 {   
