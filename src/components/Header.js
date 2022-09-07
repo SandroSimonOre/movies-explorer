@@ -5,7 +5,7 @@ import MenuButton from './MenuButton';
 const Header = () => {
     
     const test = () => {
-        alert(document.getElementById('categories').firstChild.previousSibling)       
+        alert(document.getElementById('categories').lastChild.textContent)       
     }
     return (
         

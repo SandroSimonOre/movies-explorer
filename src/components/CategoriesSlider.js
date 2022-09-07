@@ -7,13 +7,9 @@ function CategoriesSlider(){
     const categories = useGetCategories();
     const firstVisible = useRef(null);
     const lastVisible = useRef(null);
-    //const [elements, setElements] = useState([]);
+    const direction = useRef(0);
 
-    
     useEffect(()=> {
-        
-        //setElements(document.getElementById('categories').getElementsByClassName('category'))    
-        
         // INTERSECTION OBSERVER
         let options = {
             root: document.getElementById('categories-container'),
@@ -21,45 +17,50 @@ function CategoriesSlider(){
         }
 
         const callback = entries => {
+
             // Ojo con esto: estamos asumiendo que los elementos se guardan en orden
-            const tempArray = entries.filter(e => e.isIntersecting);
-            //console.log('tempArray',tempArray)
-            firstVisible.current = tempArray.at(0).target;
-            lastVisible.current = tempArray.at(-1).target;
-            //console.log(firstVisible.current);
-            //console.log(lastVisible.current);           
-
-            
             entries.forEach(entry => {
-                //console.log(entry)
-                // if (entry.target.classList.contains('first')) {
-                if (entry.target.classList.contains('first')) {
-                    
-                    if (entry.isIntersecting ) {
-                        document.getElementById('left-arrow').classList.add('disabled')
-                    } else {
-                        document.getElementById('left-arrow').classList.remove('disabled')
-                    }
-                } else if (entry.target.classList.contains('last')) {
-                    if (entry.isIntersecting ) {
-                        document.getElementById('right-arrow').classList.add('disabled')
-                    } else {
-                        document.getElementById('right-arrow').classList.remove('disabled')
-                    }
-                }
-                /*if (!entry.isIntersecting) {
-                    entry.target.classList.add('hidden')
-                }*/
 
+                if (entry.isIntersecting){
+
+                    if (entry.target === document.getElementById('categories').firstChild) {
+                        document.getElementById('left-arrow').classList.add('disabled');
+                    } else if (entry.target === document.getElementById('categories').lastChild) {
+                        document.getElementById('right-arrow').classList.add('disabled');
+                    }
+
+                    if (direction.current === 0 && firstVisible.current === null) {
+                        firstVisible.current = entry.target;
+                    }
+
+                    if (direction.current === 1 ) lastVisible.current = entry.target; 
+                    if (direction.current === -1 ) firstVisible.current = entry.target; 
+
+                } else if (!entry.isIntersecting) {
+                    
+                    if (entry.target === document.getElementById('categories').firstChild) {
+                        document.getElementById('left-arrow').classList.remove('disabled');
+                    } else if (entry.target === document.getElementById('categories').lastChild) {
+                        document.getElementById('right-arrow').classList.remove('disabled');
+                    }
+
+                    if (direction.current === 0 && lastVisible.current === null) {
+                        lastVisible.current = entry.target.previousSibling;
+                    }
+
+                    if (direction.current === 1 ) firstVisible.current = entry.target.nextSibling; 
+                    if (direction.current === -1 ) lastVisible.current = entry.target.previousSibling; 
+
+                }
+            
             });
-            console.log('terminando ejecución...')        
+
         }
 
         let observer = new IntersectionObserver(callback, options);
 
         Array.prototype.forEach.call(document.getElementsByClassName('category'), e => observer.observe(e));
         
-
         // FIN INTERSECTION OBSERVER
             
     }, [])
@@ -67,37 +68,42 @@ function CategoriesSlider(){
     const clickArrowsHandler = (e) => {
         
         if (e.target.id === 'left-arrow') {
+            direction.current = -1;
+            let nextToHide = firstVisible.current.previousSibling;
+            while(nextToHide) {
+                nextToHide.classList.add('hidden')
+                nextToHide = nextToHide.previousSibling;
+            }
 
-            document.getElementById('categories').classList.add('left-aligned');
-            document.getElementById('categories-container').classList.add('left-aligned');
+            let nextToShow = firstVisible.current.nextSibling;
+            while(nextToShow) {
+                nextToShow.classList.remove('hidden');
+                nextToShow = nextToShow.nextSibling;
+            }
+
             document.getElementById('categories').classList.remove('right-aligned');
             document.getElementById('categories-container').classList.remove('right-aligned');
 
-            /*
-            if  (firstVisible.current <= 0 )  return;
-            firstVisible.current--;
-            elements[firstVisible.current].classList.remove('hidden');
-            */
-            //console.log(firstVisible.current.previousSibling.id)
             if (firstVisible.current.previousSibling) {
                 firstVisible.current.previousSibling.classList.remove('hidden');
             } 
 
         } else if (e.target.id === 'right-arrow') {
+            direction.current = 1;
+            let nextToHide = lastVisible.current.nextSibling;
+            
+            while(nextToHide) {
+                nextToHide.classList.add('hidden')
+                nextToHide = nextToHide.nextSibling;
+            }
             
             document.getElementById('categories').classList.add('right-aligned');
             document.getElementById('categories-container').classList.add('right-aligned');
-            document.getElementById('categories').classList.remove('left-aligned');
-            document.getElementById('categories-container').classList.remove('left-aligned');
-            /*
-            if (firstVisible.current >= elements.length-1) return;
-            elements[firstVisible.current].classList.add('hidden');
-            firstVisible.current++;
-            */
-            //console.log(lastVisible.current.nextSibling.id)
+            
             if (lastVisible.current.nextSibling) {
                 lastVisible.current.nextSibling.classList.remove('hidden');
             }
+            
         }
                 
     }
@@ -117,12 +123,10 @@ function CategoriesSlider(){
                     {   
                         categories && (   
                             
-                            categories.map((category, index, array) => {
+                            categories.map((category) => {
                                 return <Category 
                                     key={category.id} 
-                                    category={category}
-                                    isFirst={(index === 0) && true}
-                                    isLast={(index === array.length - 1) && true}    
+                                    category={category}    
                                 />
                             })
                         )
