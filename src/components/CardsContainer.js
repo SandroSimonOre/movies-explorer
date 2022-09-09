@@ -8,7 +8,7 @@ const CardsContainer = (props) => {
     return(
         <>
             
-            <div className='cards-container'>
+            <div id='cards-container' className='cards-container'>
                 
                 {   
                     movies && (   

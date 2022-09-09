@@ -3,7 +3,7 @@ import CardsContainer from './CardsContainer.js';
 import './Main.scss';
 const Main = () => {
     return (
-        <div className='main'>
+        <div id = 'main' className='main'>
             <CategoriesSlider />
             <CardsContainer />
         </div>

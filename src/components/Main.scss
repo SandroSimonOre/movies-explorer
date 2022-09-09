@@ -1,12 +1,15 @@
 .main {
-    grid-area: main;
+    //grid-area: main;
     width: 100%;
     /* border-color: salmon;
     border-style: solid; */
     /*justify-content: flex-start;*/
     /*grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;*/
-    
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
     display: flex;
     flex-direction: column;
     /* overflow: hidden; */
@@ -14,6 +17,13 @@
     overflow-x: hidden;
     
     
+}
+
+.extended-main {
+    
+    grid-column-start: 2;
+    grid-column-end: 4;
+
 }
 /*
 
