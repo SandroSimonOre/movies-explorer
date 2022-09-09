@@ -14,7 +14,7 @@ const Sidebar = () => {
 
     return (
         
-        <div className='sidebar' id='test'>
+        <div id='sidebar' className='sidebar'>
             <div className='menu-item' onClick={showInfo}>
                 <FiTrendingUp />
                 <p>Trending</p>

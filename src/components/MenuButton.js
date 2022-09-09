@@ -1,13 +1,13 @@
 import './MenuButton.scss'
 const MenuButton = () => {
     
-    const handleMouseOver = () => {
-        alert('mouse hover')
+    const handleClickMenuButton = () => {
+        document.getElementById('sidebar').classList.toggle('express-sidebar');
     }
 
     return (
         
-        <div className='menu-button' onClick={()=>alert('hiciste click')} onMouseOver={handleMouseOver}>
+        <div className='menu-button' onClick={handleClickMenuButton}>
             <div></div>
             <div></div>
             <div></div>

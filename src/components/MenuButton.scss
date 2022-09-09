@@ -2,6 +2,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
+
     /* background-color: grey; */
     display: flex;
     flex-direction: column;
@@ -9,7 +10,17 @@
     /* place-content: center; */
     justify-content: center;
     align-items: center;
-    
+    transition: background-color 0.5s ease-out;
+    &:active {
+        
+        background-color: gray;
+        
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
     div {
         margin: 3px;
         width: 25px;
