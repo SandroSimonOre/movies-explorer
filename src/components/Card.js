@@ -13,10 +13,10 @@ function Card(props){
     }
 
     return(
-        <div className='card' onClick={ ()=>handleClick() }>
+        <div id='card' className='card' onClick={ ()=>handleClick() }>
 
             <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
-            <Modal isOpen={isOpen} handleClick={handleClick} test={poster_path} />
+            <Modal isOpen={isOpen} handleClick={handleClick} movie={props.movie} />
         </div>
     )
 }

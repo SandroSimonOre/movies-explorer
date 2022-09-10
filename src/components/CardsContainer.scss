@@ -2,10 +2,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
+    justify-content: space-between;
     justify-items:center;
-    /* justify-content:space-between; */
-    /* align-content: center; */
-    /* height: 500px; */
+    
     //border-color: blue;
     //border-style: solid;
     //border-width: 0.5px;

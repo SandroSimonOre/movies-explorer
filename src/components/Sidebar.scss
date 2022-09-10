@@ -8,6 +8,8 @@
     grid-column-start: 1;
     grid-column-end: 3;
 
+    padding-top: 60px;
+
     //border-style: solid;
     //border-color: purple;
     //border-width: 1px;
@@ -30,6 +32,12 @@
     grid-column-start: 1;
     grid-column-end: 2;
 
+    .menu-item {
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
+        height: 5rem;
+    }
     //background-color: red;
     .menu-item .item-title {
         display: none;
