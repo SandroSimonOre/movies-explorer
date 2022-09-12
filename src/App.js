@@ -1,6 +1,6 @@
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Main from './Main';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Main from './components/Main';
 
 import './App.scss'
 
