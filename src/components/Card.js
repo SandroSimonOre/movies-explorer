@@ -1,24 +1,10 @@
-import { useState } from 'react';
-import Modal from './Modal';
 import './Card.scss';
 
-function Card(props){
+function Card({movie, basePath, handleClick}){
 
-    const [isOpen, setIsOpen] = useState(false);
-    
-    const { poster_path } = props.movie;
-    
-    const handleClick = () => {
-        setIsOpen(!isOpen)
-    }
-    // TODO:
-    // ESTO SE VE MUY MAL, EL MODAL NO DEBERIA IR JUNTO CON LA IMAGEN. QUIZA 
-    // LO PODAMOS COLOCAR EN EL CardContainer
     return(
-        <div id='card' className='card' onClick={ ()=>handleClick() }>
-
-            <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
-            <Modal isOpen={isOpen} handleClick={handleClick} movie={props.movie} />
+        <div id='card' className='card' data-movie-id={movie.id} onClick={handleClick}>
+            <img src={basePath + movie.poster_path} alt={movie.title} />
         </div>
     )
 }
