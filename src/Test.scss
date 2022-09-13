@@ -1,0 +1,19 @@
+.Test {
+    background-color: yellow;
+    .container {
+        height: 100%;
+        width: 50%;
+        background-color: red;
+    }
+
+    .loader {
+        background-color: green;
+        color: white;
+    }
+
+    .card {
+        height: 20%;
+        
+        overflow: hidden;
+    }
+}

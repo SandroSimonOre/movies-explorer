@@ -4,9 +4,9 @@ import Main from './components/Main';
 
 import './App.scss'
 
-const Container = () => {
+const App = () => {
     return (
-        <div className='container'>  
+        <div className='App'>  
         
             <Header />
             <Sidebar />
@@ -16,4 +16,4 @@ const Container = () => {
     )
 }
 
-export default Container;
+export default App;

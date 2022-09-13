@@ -2,7 +2,7 @@ import './CardsContainer.scss';
 import Card from './Card';
 import useGetMovies from '../hooks/useGetMovies';
 
-const CardsContainer = (props) => {
+const CardsContainer = () => {
     
     const movies = useGetMovies();
     return(

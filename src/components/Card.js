@@ -11,7 +11,9 @@ function Card(props){
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
-
+    // TODO:
+    // ESTO SE VE MUY MAL, EL MODAL NO DEBERIA IR JUNTO CON LA IMAGEN. QUIZA 
+    // LO PODAMOS COLOCAR EN EL CardContainer
     return(
         <div id='card' className='card' onClick={ ()=>handleClick() }>
 

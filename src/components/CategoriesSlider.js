@@ -44,17 +44,17 @@ function CategoriesSlider(){
                 
             }
             if (firstTime.current === false && ignoreObserver.current === false)  {
-                console.log(firstTime.current, ignoreObserver.current)
-                console.log('No se ejecuta la primera vez')
+                //console.log(firstTime.current, ignoreObserver.current)
+                //console.log('No se ejecuta la primera vez')
                 entries.forEach(e => {
                     if (e.isIntersecting) {
                         firstVisible.current = e.target;
-                        console.log('firstVisible:',firstVisible.current.textContent);
+                        //console.log('firstVisible:',firstVisible.current.textContent);
                     }
 
                     if (!e.isIntersecting) {
                         firstHidden.current = e.target;
-                        console.log('firstHidden:',firstHidden.current.textContent);
+                        //console.log('firstHidden:',firstHidden.current.textContent);
                     }
                 })
             }    
@@ -98,8 +98,8 @@ function CategoriesSlider(){
         ignoreObserver.current = true;
         userClickingArrow.current = true;
         if (e.target.id === 'left-arrow') {
-            console.log('CLICK LEFT ARROW')
-            console.log('ignoreObserver:',ignoreObserver.current);  
+            //console.log('CLICK LEFT ARROW')
+            //console.log('ignoreObserver:',ignoreObserver.current);  
             
             if (document.getElementById('categories').classList.contains('right-aligned')) {
                 
@@ -121,8 +121,8 @@ function CategoriesSlider(){
             document.getElementById('categories-container').classList.remove('right-aligned');
 
         } else if (e.target.id === 'right-arrow') {
-            console.log('CLICK RIGHT ARROW')
-            console.log('ignoreObserver:',ignoreObserver.current);
+            //console.log('CLICK RIGHT ARROW')
+            //console.log('ignoreObserver:',ignoreObserver.current);
             if (!document.getElementById('categories').classList.contains('right-aligned')) {
                 
                 firstVisible.current = firstHidden.current;
