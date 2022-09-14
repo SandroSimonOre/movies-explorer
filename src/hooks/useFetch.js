@@ -1,37 +1,31 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useFetch(url) {
+const useFetch = url => {
 
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
     const [data, setData] = useState([]);
-
-    const sendRequest = useCallback(async () => {
-        try {
-            setLoading(true);
-            setError(false);
-            
-            const res = await axios.get(url);    
-            
-            setData(previousData => previousData.concat(res.data.results));
-            setLoading(false);
-        
-        } catch (err) {
-        
-            setError(err);
-        
-        }
-
-    }, [url]);
-
-    useEffect(() => {
+    const [totalPages, setTotalPages] = useState(0);
     
-        sendRequest(url);
-    
-    }, [sendRequest, url]);
+    useEffect(()=> {
 
-    return {loading, error, data}
+        setLoading(true);
+           
+        (async () => {
+            
+            const response = await axios.get(url);
+            setData(previousData => previousData.concat(response.data.results));
+            setTotalPages(response.data.total_pages);
+        
+        })();
+            
+        //console.log(totalPages)
+        setLoading(false);
+
+    }, [url])
+    
+    return {data, loading, totalPages};
+
 }
 
 export default useFetch;

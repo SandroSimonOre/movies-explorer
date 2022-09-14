@@ -1,59 +1,63 @@
 import  { API_KEY } from './config';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import useFetch from './hooks/useFetch';
+//import Card from './components/Card';
 import './Test.scss';
 
 const Test = () => {
-    const [page, setPage] = useState(1);
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}`;
+
+    const [ pageNumber, setPageNumber ] = useState(1);
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNumber}`;
     //const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
-    const {loading, error, data} = useFetch(url);
+    
+    const { data, loading, totalPages } = useFetch(url);
     const movies = data;
-    const loader = useRef(null);
+    const observer = useRef();
+    const lastItemRef = useCallback(item => {
+        if (loading) return;
+        if (observer.current) observer.current.disconnect();
+        observer.current = new IntersectionObserver( entries => {
+            if (entries[0].isIntersecting && pageNumber <= totalPages) {
+                setPageNumber(previous => previous + 1)
+            }
+        })
 
-    const handleObserver = useCallback(entries => {
-        const target = entries[0];
-        if (target.isIntersecting) {
-            console.log('isIntersecting');
-            setPage(previous => previous + 1);
-        }
-    }, []);
+        if (item) observer.current.observe(item);
 
-    useEffect(() => {
-        const options = {
-            root: null,
-            //rootMargin: '20px',
-            threshold: 0
-        };
-        //console.log('useeffect')
-        const observer = new IntersectionObserver(handleObserver, options);
-        if (loader.current) observer.observe(loader.current);
-
-    }, [handleObserver])
+    }, [loading, pageNumber, totalPages]);
 
     return (
-        
         <div className='Test'>
             
             <div className='container'>
             
                 {
-                    movies && movies.map(movie => (
-                    <div key={movie.id} className='card'>
-                        <h2>{movie.title}</h2>
-                        <p>{movie.overview}</p>
-                        <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
-                    </div>
-                ))}
+                    movies && movies.map((movie, index , array ) => {
+
+                        if (array.length === index + 1) {
+                            
+                            return <div ref={lastItemRef} key={movie.id} className='card'>
+                                        <img src={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} alt="" />
+                                    </div>
+                        
+                        } else {
+                            return <div key={movie.id} className='card'>
+                                        <img src={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} alt="" />
+                                    </div>
+                        }
+                        
+                    })
+                }
 
             </div>
-            <div>FINNNNNNNNNNNNNNNN</div>
+
             {loading && <p className='loader'>Loading...</p>}
-            {error && <p>Error!</p>}
-            <div ref={loader} className='loader'></div>
+            
         
         </div>
-    )
+                            
+)
+    
 }
 
 export default Test;
