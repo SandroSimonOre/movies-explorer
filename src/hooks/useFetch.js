@@ -3,13 +3,13 @@ import axios from "axios";
 
 const useFetch = url => {
 
-    const [loading, setLoading] = useState(true);
+    //const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
     
     useEffect(()=> {
-
-        setLoading(true);
+        console.log('useEffect en useFetch...');
+        //setLoading(true);
            
         (async () => {
             
@@ -19,12 +19,11 @@ const useFetch = url => {
         
         })();
             
-        //console.log(totalPages)
-        setLoading(false);
+        //setLoading(false);
 
     }, [url])
     
-    return {data, loading, totalPages};
+    return {data, totalPages};
 
 }
 
