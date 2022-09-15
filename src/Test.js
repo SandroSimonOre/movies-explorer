@@ -1,71 +1,96 @@
-import  { API_KEY } from './config';
 import { useState, useRef, useEffect } from 'react';
-import useFetch from './hooks/useFetch';
+import axios from "axios";
+import  { API_KEY } from './config';
+
 import Card from './components/Card';
 import './Test.scss';
 
+const TOTAL_PAGES = 6;
 const Test = () => {
+    const [loading, setLoading] = useState(true);
+    const [allMovies, setAllMovies] = useState([]);
+    const [pageNum, setPageNum] = useState(1);
+    const [lastElement, setLastElement] = useState(null);
 
-    const [ pageNumber, setPageNumber ] = useState(1);
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNumber}`;
-    
-    const { data, totalPages } = useFetch(url);
-    const movies = data;
-
-    const loaderRef = useRef();
-
-    useEffect( ()=> {
-        const observer = new IntersectionObserver(
-            entries => {
-                const [entry] = entries;
-                if (entry.isIntersecting && pageNumber <= totalPages) {
-                    setPageNumber(previous => previous + 1);
-                    console.log('Showing loader...');
+    const observer = useRef(
+        new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting) {
+                    setPageNum( previous => previous + 1);
                 }
-            },
-            {root: null, rootMargin: '0px', threshold: 0.8}
+            })
+    );
+
+    const getData = async () => {
+        setLoading(true);
+        let response = await axios.get(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`
         );
+        let all = new Set([...allMovies, ...response.data.results]);
+        setAllMovies([...all]);
+        setLoading(false);
+    };
 
-        if (loaderRef.current) observer.observe(loaderRef.current);
+    useEffect(() => {
+        if (pageNum <= TOTAL_PAGES) {
+            getData();
+        }
+    }, [pageNum]);
 
-        return ()=> {
+    useEffect(() => {
+        const currentElement = lastElement;
+        const currentObserver = observer.current;
 
-            if (loaderRef.current) observer.unobserve(loaderRef.current);
+        if (currentElement) {
+            currentObserver.observe(currentElement);
         }
 
-    }, [loaderRef, pageNumber, totalPages]);
+        return () => {
+            if (currentElement) {
+                currentObserver.unobserve(currentElement);
+            }
+        };
+    }, [lastElement]);
 
+    
     return (
         <div className='Test'>
-            
-            <div className='container'>
+        <div className='container'>
+            <h1>All movies</h1>
 
-                <div className='movies-grid'>
-
-                    {
-                        movies && movies.map((movie) => {
-                            return <Card key={movie.id}
+            <div className='movies-grid'>
+                {allMovies.length > 0 &&
+                    allMovies.map((movie, i) => {
+                        return (i === allMovies.length - 1 &&
+                            !loading && pageNum <= TOTAL_PAGES) ? (
+                            
+                                <div
+                                    key={`${movie.id}-${i}`}
+                                    ref={setLastElement}
+                                >
+                                    <Card 
                                         movie={movie}
                                         basePath='https://image.tmdb.org/t/p/w300/'
-                                    /> 
-                        
-                        })
-                    }
-
-                </div>
-                
-            <div ref={loaderRef} className='loader'>
-                <h2>Loading movies...</h2>
+                                    />
+                                </div>
+                            ) : (
+                            <Card
+                                movie={movie}
+                                key={`${movie.id}-${i}`}
+                                basePath='https://image.tmdb.org/t/p/w300/'
+                            />
+                        );
+                    })}
             </div>
-                
+            {loading && <div className='loader'>loading...</div>}
 
-            </div>
-            
-            
+            {pageNum - 1 === TOTAL_PAGES && (
+                <p>♥</p>
+            )}
         </div>
-                            
-    )
-    
-}
+        </div>
+    );
+};
 
 export default Test;
