@@ -15,7 +15,7 @@
         }
         
         .loader {
-            padding: 0;
+            // padding: 0;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -23,6 +23,18 @@
             font-weight: bolder;
             height: 100px;
             width: 100%;
+            
+        }
+
+        .no-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bolder;
+            height: 50px;
+            width: 100%;
+            
         }
 
     }   

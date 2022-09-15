@@ -5,18 +5,18 @@ import  { API_KEY } from './config';
 import Card from './components/Card';
 import './Test.scss';
 
-const TOTAL_PAGES = 6;
 const Test = () => {
     const [loading, setLoading] = useState(true);
     const [allMovies, setAllMovies] = useState([]);
     const [pageNum, setPageNum] = useState(1);
     const [lastElement, setLastElement] = useState(null);
-
+    const [totalPages, setTotalPages] = useState(1);
+    
     const observer = useRef(
         new IntersectionObserver(
             (entries) => {
-                const first = entries[0];
-                if (first.isIntersecting) {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
                     setPageNum( previous => previous + 1);
                 }
             })
@@ -27,28 +27,37 @@ const Test = () => {
         let response = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`
         );
-        let all = new Set([...allMovies, ...response.data.results]);
-        setAllMovies([...all]);
+        //let all = new Set([...allMovies, ...response.data.results]);
+        //let all = [...allMovies, ...response.data.results];
+        
+        setAllMovies( allMovies.concat(response.data.results) );
+        //if ( totalPages === 1 ) setTotalPages(response.data.total_pages);
+        
+        setTotalPages(4);
         setLoading(false);
     };
 
     useEffect(() => {
-        if (pageNum <= TOTAL_PAGES) {
+        if (pageNum <= totalPages) {
             getData();
         }
     }, [pageNum]);
 
     useEffect(() => {
         const currentElement = lastElement;
+        
         const currentObserver = observer.current;
+        
 
         if (currentElement) {
             currentObserver.observe(currentElement);
+            //observer.current.observe(currentElement);
         }
 
         return () => {
             if (currentElement) {
                 currentObserver.unobserve(currentElement);
+                //observer.current.unobserve(currentElement);
             }
         };
     }, [lastElement]);
@@ -56,39 +65,37 @@ const Test = () => {
     
     return (
         <div className='Test'>
-        <div className='container'>
-            <h1>All movies</h1>
+            <div className='container'>
+                <h1>All movies</h1>
 
-            <div className='movies-grid'>
-                {allMovies.length > 0 &&
-                    allMovies.map((movie, i) => {
-                        return (i === allMovies.length - 1 &&
-                            !loading && pageNum <= TOTAL_PAGES) ? (
-                            
-                                <div
-                                    key={`${movie.id}-${i}`}
-                                    ref={setLastElement}
-                                >
-                                    <Card 
-                                        movie={movie}
-                                        basePath='https://image.tmdb.org/t/p/w300/'
-                                    />
-                                </div>
-                            ) : (
-                            <Card
-                                movie={movie}
-                                key={`${movie.id}-${i}`}
-                                basePath='https://image.tmdb.org/t/p/w300/'
-                            />
-                        );
-                    })}
+                <div className='movies-grid'>
+                    {allMovies.length > 0 &&
+                        allMovies.map((movie, index) => {
+                            return (index === allMovies.length - 1 &&
+                                !loading && pageNum <= totalPages) ? (
+                                
+                                    <div
+                                        key={movie.id}
+                                        ref={setLastElement}
+                                    >
+                                        <Card 
+                                            movie={movie}
+                                            basePath='https://image.tmdb.org/t/p/w300/'
+                                        />
+                                    </div>
+                                ) : (
+                                <Card
+                                    movie={movie}
+                                    key={movie.id}
+                                    basePath='https://image.tmdb.org/t/p/w300/'
+                                />
+                            );
+                        })}
+                </div>
+                {loading && <div className='loader'>loading...</div>}
+                {pageNum - 1 === totalPages && ( <div className='no-more'>--- This is the end of the list ---</div>)}
+
             </div>
-            {loading && <div className='loader'>loading...</div>}
-
-            {pageNum - 1 === TOTAL_PAGES && (
-                <p>♥</p>
-            )}
-        </div>
         </div>
     );
 };
