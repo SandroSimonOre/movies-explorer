@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from "axios";
-import  { API_KEY } from './config';
+import  { API_KEY } from '../config';
 
-import Card from './components/Card';
+import Card from '../components/Card';
 import './Test.scss';
 
 const Test = () => {

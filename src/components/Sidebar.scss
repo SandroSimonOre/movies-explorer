@@ -9,10 +9,11 @@
     grid-column-end: 3;
 
     padding-top: 60px;
-
-    //border-style: solid;
-    //border-color: purple;
-    //border-width: 1px;
+    
+    .link {
+        text-decoration: none;
+        color: black;
+    }
 
     .menu-item {
         display: flex;
