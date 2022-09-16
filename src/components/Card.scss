@@ -4,8 +4,17 @@
         width: 100%;
     }
 
+    
+    
+
     &:hover {
         cursor: pointer;
-    }
-    
+    }   
+}
+
+.hidden {
+    display: none;
+    border-color: yellow;
+    border-style: solid;
+    height: 10%;
 }

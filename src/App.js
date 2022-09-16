@@ -2,7 +2,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
-import Modal from './components/Modal';
+import CategoriesSlider from './components/CategoriesSlider';
+import CardsContainer from './components/CardsContainer';
+import Favorites from './components/Favorites';
+import Trending from './components/Trending';
+
+// import Modal from './components/Modal';
 import './App.scss'
 
 const App = () => {
@@ -11,7 +16,7 @@ const App = () => {
 
             <Routes>
 
-                <Route path='/' element = {<Navigate to = '/discovering' />} />
+                <Route path='/' element = {<Navigate to = '/favorites' />} />
                 <Route path='/trending' element = { <TrendingMovies /> } />
                 <Route path='/favorites' element = { <FavoriteMovies /> } />
                 <Route path='/discovering' element = { <DiscoveringMovies /> } />
@@ -31,8 +36,10 @@ const DiscoveringMovies = () => {
         <>
             <Header />
             <Sidebar />
-            <Main />
-            {/* <Modal /> */}
+            <Main>
+                <CategoriesSlider />
+                <CardsContainer />
+            </Main>
         </>
     )
 }
@@ -40,7 +47,12 @@ const DiscoveringMovies = () => {
 const TrendingMovies = () => {
     return (
         <>
-            <h1>Trending movies</h1>
+            <Header />
+            <Sidebar />
+            <Main>
+                <CategoriesSlider />
+                <Trending />
+            </Main>
         </>
     )
 }
@@ -48,7 +60,14 @@ const TrendingMovies = () => {
 const FavoriteMovies = () => {
     return (
         <>
-            <h1>Favorite movies</h1>    
+            <Header />
+            <Sidebar />
+            <Main>
+                <CategoriesSlider />
+                <Favorites />
+            </Main>
+                
+            
         </>
     )
 }
