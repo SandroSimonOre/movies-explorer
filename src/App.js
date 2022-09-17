@@ -7,7 +7,7 @@ import CardsContainer from './containers/CardsContainer';
 import Favorites from './containers/Favorites';
 import Trending from './containers/Trending';
 import Recommendations from "./containers/Recommendations";
-
+import SearchResults from "./containers/SearchResults";
 // import Modal from './components/Modal';
 import './App.scss'
 
@@ -22,6 +22,8 @@ const App = () => {
                 <Route path='/favorites' element = { <FavoriteMovies /> } />
                 <Route path='/discovering' element = { <DiscoveringMovies /> } />
                 <Route path='/recommendations' element = { <RecommendationsMovies /> } />
+                <Route path='/search' element = { <SearchMovies /> } />
+                
             </Routes>
 
         </div> 
@@ -30,8 +32,6 @@ const App = () => {
 
 
 const DiscoveringMovies = () => {
-    
-
     
     return (
         <>
@@ -82,6 +82,21 @@ const RecommendationsMovies = () => {
                 <Recommendations />
             </Main>
                 
+            
+        </>
+    )
+}
+
+const SearchMovies = () => {
+    
+    return (
+        <>
+            <Header />
+            <Sidebar />
+            <Main>
+                <CategoriesSlider />
+                <SearchResults />
+            </Main>
             
         </>
     )
