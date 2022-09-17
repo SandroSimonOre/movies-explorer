@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import './Sidebar.scss'
-import MenuItem from './MenuItem'
+import MenuItem from '../components/MenuItem'
 const Sidebar = () => {
 
     return (
@@ -19,11 +19,15 @@ const Sidebar = () => {
                     <MenuItem title = 'Favorites' url = 'https://cdn-icons-png.flaticon.com/512/3507/3507694.png' />
                 </Link>
 
+                <Link className='link' to = '/recommendations'>
+                    <MenuItem title = 'Recommendations' url = 'https://cdn-icons-png.flaticon.com/512/2128/2128445.png' />
+                </Link>
+
             </div>
-            <div className='more-info'>
+            {/* <div className='more-info'>
                 <h5>About this app:</h5>
                 <p>You can find more information about this app fucntionality on the next link:</p>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import './CategoriesSlider.scss';
-import Category from './Category';
+import Category from '../components/Category';
 import useGetCategories from '../hooks/useGetCategories';
 import { useEffect, useRef } from 'react';
 

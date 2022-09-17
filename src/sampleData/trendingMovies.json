@@ -67,29 +67,7 @@
         "vote_average": 7.2,
         "vote_count": 123
       },
-      {
-        "adult": false,
-        "backdrop_path": "/9GvhICFMiRQA82vS6ydkXxeEkrd.jpg",
-        "id": 92783,
-        "name": "She-Hulk: Attorney at Law",
-        "original_language": "en",
-        "original_name": "She-Hulk: Attorney at Law",
-        "overview": "Jennifer Walters navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk.",
-        "poster_path": "/hJfI6AGrmr4uSHRccfJuSsapvOb.jpg",
-        "media_type": "tv",
-        "genre_ids": [
-          35,
-          10759,
-          10765
-        ],
-        "popularity": 7472.908,
-        "first_air_date": "2022-08-18",
-        "vote_average": 7.355,
-        "vote_count": 310,
-        "origin_country": [
-          "US"
-        ]
-      },
+      
       {
         "adult": false,
         "backdrop_path": "/6cpRpfD3isvluFwXDGSiDVyibPJ.jpg",
@@ -151,29 +129,7 @@
         "vote_average": 6.156,
         "vote_count": 16
       },
-      {
-        "adult": false,
-        "backdrop_path": "/8f2JboeqPuSepNVQJUGttvnqgkl.jpg",
-        "id": 156935,
-        "name": "Lost Ollie",
-        "original_language": "en",
-        "original_name": "Lost Ollie",
-        "overview": "A patchwork rabbit with floppy ears and fuzzy memories embarks on an epic quest to find his best friend — the young boy he desperately loves.",
-        "poster_path": "/kwx40ip5Yq24faboIBu3BaICaJa.jpg",
-        "media_type": "tv",
-        "genre_ids": [
-          16,
-          10751,
-          18
-        ],
-        "popularity": 43.491,
-        "first_air_date": "2022-08-24",
-        "vote_average": 8.8,
-        "vote_count": 5,
-        "origin_country": [
-          "US"
-        ]
-      },
+
       {
         "adult": false,
         "backdrop_path": "/pVjrIf7iISs4KQwwbvT2pQOvQZI.jpg",

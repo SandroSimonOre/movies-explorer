@@ -1,6 +1,6 @@
 import './Header.scss';
-import Searcher from './Searcher';
-import MenuButton from './MenuButton';
+import Searcher from '../components/Searcher';
+import MenuButton from '../components/MenuButton';
 
 const Header = () => {
 
