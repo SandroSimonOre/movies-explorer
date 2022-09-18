@@ -1,0 +1,17 @@
+.spinner {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+}
+  
+.spinning {
+    width: 40px;
+    animation: spinner 3s linear infinite;
+}
+  
+@keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+}

@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import './Searcher.scss'
-const Searcher = () => {
-   return (
-    <div className='searcher'>
-        
-        <input type="text" />
-        
-        <span className='search-icon'>
+import { Link } from 'react-router-dom'
 
-        </span>
-    </div>
-   )
+const Searcher = () => {
+
+    const [searchText, setSearchText] = useState('');
+    const handleChange = (e) => {
+        setSearchText(e.target.value);
+    }
+
+    return (
+        <div className='searcher-container'>
+            <form className='searcher'>
+                <input className='search-input' value={searchText} type="text" placeholder='Search here' onChange={handleChange} />
+                <Link to = {`/search?q=${searchText}`}>
+                    <button className='search-button'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/622/622669.png' alt='' />
+                    </button>
+                </Link>
+                
+            </form>
+            
+        </div>
+    )
 }
 
 export default Searcher;
