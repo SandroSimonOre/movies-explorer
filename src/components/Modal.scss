@@ -1,4 +1,4 @@
-.modal-shadow {
+.modal-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -34,50 +34,10 @@
             }
         }
 
-        .movie-container {
-            display: flex;
-            height: 100%;
-
-            img {
-                height: 100%;
-            }
-
-            .movie-info {
-                padding-left: 1rem;
-                padding-right: 1rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            button {
-                height: 15%;
-                width: 100%;
-                align-self: center;
-                font-size: 1.7rem;
-                background-color: orange;
-                color: white;
-                border-style: none;
-                border-radius: 10px;
-                margin-bottom: 1rem;
-
-                &:hover {
-                    cursor: pointer;
-                    
-                }
-
-                &:active {
-                    background-color: yellow;
-                    transform: scale(0.98);
-                    //border-color: white;
-                }
-            }
-            
-        }
     }
 
 }
 
-.modal-shadow.is-open {
+.modal-background.is-open {
     display: flex;
 }
