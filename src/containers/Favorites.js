@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import Card from "./../components/Card";
 import Modal from '../components/Modal';
 import useModal from "../hooks/useModal";
-//import useGetOneMovie from "../hooks/useGetOneMovie";
-import getOneMovie from "../helpers/getOneMovie";
+import { getOneMovie } from "../services/getOneMovie";
 
 const Favorites = () => {
-    //const [movie, setMovie] = useState(null);
+
     const [movie, setMovie] = useState(null); 
-    const [idMovie, setIdMovie] = useState(null);
+    const [movieId, setMovieId] = useState('');
     const [isOpen, openModal, closeModal] = useModal();
 
     let favorites = [];
@@ -17,21 +16,22 @@ const Favorites = () => {
     }
 
     useEffect(()=> {
-        //console.log('ejecutando useEffect...')
-        setMovie(getOneMovie(idMovie));
-        //console.log('peli',movie)
-    },[idMovie]);
+
+        const loadMovie = async ()=> {
+            const response = await getOneMovie(movieId); 
+            if (response) setMovie(response.data)
+        }
+        loadMovie();
+
+    },[movieId]);
 
     const handleClick = (e) => {
-        //alert(e.currentTarget.tagName)
-        setIdMovie( e.currentTarget.dataset.movieId);
+        
+        setMovieId( e.currentTarget.dataset.movieId);
         openModal();
+
     }
-    //console.log(cajon)
-    //setMovie(movieId );
-    //const movie = getOneMovie(movieId);
-    //console.log('moive', movie) 
-    
+
     return (
         <>
             <div id='cards-container' className='cards-container'>
@@ -51,9 +51,12 @@ const Favorites = () => {
                 isOpen={isOpen}
                 closeModal={closeModal}
             >   
-                
-                <h1>Soy un modal</h1>
                 <p>{ movie && movie.id }</p>
+                <p>{ movie && movie.title }</p>
+                <p>{ movie && movie.poster_path }</p>
+                <p>{ movie && movie.overview }</p>
+                <p>{ movie && movie.release_date }</p>
+                <p>{ movie && movie.vote_average }</p>
                 
             </Modal>
         </>
