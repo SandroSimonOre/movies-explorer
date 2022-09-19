@@ -18,3 +18,9 @@
     border-style: solid;
     height: 10%;
 }
+
+.placeholder {
+    &:hover {
+        cursor:auto;
+    }
+}

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useSearchParams } from "react-router-dom";
 import Header from './components/Header';
 import Sidebar from './containers/Sidebar';
 import Main from './containers/Main';
@@ -89,13 +89,16 @@ const RecommendationsMovies = () => {
 
 const SearchMovies = () => {
     
+    const [query] = useSearchParams();
+    const search = query.get("query");
+    
     return (
         <>
             <Header />
             <Sidebar />
             <Main>
                 <CategoriesSlider />
-                <SearchResults />
+                <SearchResults key={search} />
             </Main>
             
         </>

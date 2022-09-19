@@ -4,16 +4,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 13fr;
     grid-template-rows: 1fr 11fr;
-    //grid-template-areas: 
-    //    "header header header"
-    //    "sidebar sidebar main";
     gap: 10px;
     
 }
-
-.container-express {
-    display: grid;
-    grid-template-areas: 
-        "header header header"
-        "sidebar main main";
- }

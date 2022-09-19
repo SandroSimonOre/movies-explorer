@@ -25,3 +25,4 @@ yarn-error.log*
 # API Key
 .env
 notes.md
+Card.jpg

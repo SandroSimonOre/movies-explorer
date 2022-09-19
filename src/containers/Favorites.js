@@ -6,10 +6,10 @@ const Favorites = () => {
     for (let i = 0; i < localStorage.length; i++) {
         favorites.push( JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
-    console.log(favorites)
+    // console.log(favorites)
 
     useEffect(()=> {
-        console.log('ejecutando useEffect...')
+        //console.log('ejecutando useEffect...')
     })
 
     return (
