@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import './Modal.scss'
 
-const Modal = ({isOpen, closeModal, children}) => {
+export const Modal = ({isOpen, closeModal, children}) => {
     
     return ReactDOM.createPortal(
     
@@ -27,5 +27,3 @@ const Modal = ({isOpen, closeModal, children}) => {
     
         )
 }
-
-export default Modal;

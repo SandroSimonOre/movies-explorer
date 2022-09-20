@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import './Sidebar.scss'
 import MenuItem from '../components/MenuItem'
-const Sidebar = () => {
+
+export const Sidebar = () => {
 
     return (
         
@@ -31,5 +32,3 @@ const Sidebar = () => {
         </div>
     )
 }
-
-export default Sidebar;

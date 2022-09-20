@@ -1,0 +1,14 @@
+.movie-info {
+
+    .movie-info-container {
+        display: flex;
+
+        
+        .detail-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+    }
+}

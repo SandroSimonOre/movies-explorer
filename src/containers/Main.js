@@ -1,5 +1,5 @@
 import './Main.scss';
-const Main = (props) => {
+export const Main = (props) => {
 
     return (
         <div id = 'main' className='main'>
@@ -9,5 +9,3 @@ const Main = (props) => {
         </div>
     )
 }
-
-export default Main;

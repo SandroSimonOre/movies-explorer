@@ -1,7 +1,7 @@
 import './Card.scss';
 //import placeHolder from './Card.jpg';
 
-function Card({ movie, basePath, handleClick }){
+export const Card = ({ movie, basePath, handleClick, children }) => {
     
     if (movie.poster_path === null) return;
 
@@ -9,10 +9,9 @@ function Card({ movie, basePath, handleClick }){
         <>
             <div className='card' data-movie-id={movie.id} onClick={handleClick}>
                 <img src={basePath + movie.poster_path} alt={movie.title} />
-                <span>{movie.title}</span>
+                {children}
             </div>
+            
         </>
     )
 }
-
-export default Card; 

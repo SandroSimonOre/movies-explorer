@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import axios from "axios";
 import  { API_KEY } from '../config';
 
-import Card from '../components/Card';
+import {Card} from '../components/Card';
 import './CardsContainer.scss';
 
-const CardsContainer = () => {
+export const CardsContainer = () => {
     const [loading, setLoading] = useState(true);
     const [allMovies, setAllMovies] = useState([]);
     const [pageNum, setPageNum] = useState(1);
@@ -92,5 +92,3 @@ const CardsContainer = () => {
         
     );
 };
-
-export default CardsContainer;

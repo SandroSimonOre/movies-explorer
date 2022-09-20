@@ -1,7 +1,7 @@
 import useGetMovies from "../hooks/useGetMovies";
 import  { API_KEY } from '../config';
 import axios from "axios";
-import Card from "./../components/Card";
+import {Card} from "./../components/Card";
 
 const Recommendations = () => {
         

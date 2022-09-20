@@ -2,7 +2,7 @@ import './Header.scss';
 import Searcher from '../components/Searcher';
 import MenuButton from '../components/MenuButton';
 
-const Header = () => {
+export const Header = () => {
 
     return (
         
@@ -16,5 +16,3 @@ const Header = () => {
         
     )
 }
-
-export default Header;

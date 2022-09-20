@@ -1,17 +1,17 @@
 //import { useLocation } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from 'axios';
 import InfiniteScroll from "react-infinite-scroll-component";
+import axios from 'axios';
+import { useEffect, useState } from "react";
 
-import { API_KEY } from "../config";
-
-import Card from "../components/Card";
+import {Card} from "../components/Card";
 import { Empty } from "../components/Empty";
 import { Spinner } from "../components/Spinner";
 
+import { API_KEY } from "../config";
 
-const SearchResults = () => {
+
+export const SearchResults = () => {
     //const [search, setSearch] = useState();
     //const location = useLocation();
     const [query] = useSearchParams();
@@ -82,4 +82,3 @@ const SearchResults = () => {
         </InfiniteScroll>
     )
 }
-export default SearchResults;

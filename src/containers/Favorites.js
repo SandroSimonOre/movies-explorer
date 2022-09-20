@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import Card from "./../components/Card";
-import Modal from '../components/Modal';
+import {Card} from "./../components/Card";
+import { MovieInfo } from "../components/MovieInfo";
+import {Modal} from '../components/Modal';
 import useModal from "../hooks/useModal";
 import { getOneMovie } from "../services/getOneMovie";
+import { WaterMark } from "../components/WaterMark";
 
-const Favorites = () => {
+export const Favorites = () => {
 
     const [movie, setMovie] = useState(null); 
     const [movieId, setMovieId] = useState('');
@@ -43,7 +45,10 @@ const Favorites = () => {
                                 key={fav.id}
                                 basePath='https://image.tmdb.org/t/p/w300/'
                                 handleClick={handleClick}
-                        />
+                                >
+                                    <WaterMark content='Click here for more information'/>
+                                </Card>
+                        
                     })
             }
             </div>
@@ -51,17 +56,12 @@ const Favorites = () => {
                 isOpen={isOpen}
                 closeModal={closeModal}
             >   
-                <p>{ movie && movie.id }</p>
-                <p>{ movie && movie.title }</p>
-                <p>{ movie && movie.poster_path }</p>
-                <p>{ movie && movie.overview }</p>
-                <p>{ movie && movie.release_date }</p>
-                <p>{ movie && movie.vote_average }</p>
-                
+                { movie && <MovieInfo movie={movie} 
+                                      basePath = 'https://image.tmdb.org/t/p/w300/'
+                                      buttonTitle='Remove from favorites'
+                            /> }
             </Modal>
         </>
     )
 
 }
-
-export default Favorites;

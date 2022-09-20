@@ -3,7 +3,7 @@ import Category from '../components/Category';
 import useGetCategories from '../hooks/useGetCategories';
 import { useEffect, useRef } from 'react';
 
-function CategoriesSlider(){
+export const CategoriesSlider = () => {
 
     const categories = useGetCategories();
     const firstVisible = useRef(null);
@@ -178,5 +178,3 @@ function CategoriesSlider(){
         </div>
     )
 }
-
-export default CategoriesSlider;

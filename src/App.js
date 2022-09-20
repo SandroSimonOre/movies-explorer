@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate, useSearchParams } from "react-router-dom";
-import Header from './components/Header';
-import Sidebar from './containers/Sidebar';
-import Main from './containers/Main';
-import CategoriesSlider from './containers/CategoriesSlider';
-import CardsContainer from './containers/CardsContainer';
-import Favorites from './containers/Favorites';
-import Trending from './containers/Trending';
+import {Header} from './components/Header';
+import {Sidebar} from './containers/Sidebar';
+import {Main} from './containers/Main';
+import {CategoriesSlider} from './containers/CategoriesSlider';
+import {CardsContainer} from './containers/CardsContainer';
+import {Favorites} from './containers/Favorites';
+import {Trending} from './containers/Trending';
 import Recommendations from "./containers/Recommendations";
-import SearchResults from "./containers/SearchResults";
+import {SearchResults} from "./containers/SearchResults";
 // import Modal from './components/Modal';
 import './App.scss'
 
@@ -38,7 +38,7 @@ const DiscoveringMovies = () => {
             <Header />
             <Sidebar />
             <Main>
-                <CategoriesSlider />
+                {/* <CategoriesSlider /> */}
                 <CardsContainer />
             </Main>
         </>
@@ -51,7 +51,7 @@ const TrendingMovies = () => {
             <Header />
             <Sidebar />
             <Main>
-                <CategoriesSlider />
+                {/* <CategoriesSlider /> */}
                 <Trending />
             </Main>
         </>
@@ -64,7 +64,7 @@ const FavoriteMovies = () => {
             <Header />
             <Sidebar />
             <Main>
-                <CategoriesSlider />
+                {/* <CategoriesSlider /> */}
                 <Favorites />
             </Main>
             
@@ -78,7 +78,7 @@ const RecommendationsMovies = () => {
             <Header />
             <Sidebar />
             <Main>
-                <CategoriesSlider />
+                {/* <CategoriesSlider /> */}
                 <Recommendations />
             </Main>
                 
