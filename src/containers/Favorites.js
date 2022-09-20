@@ -46,7 +46,7 @@ export const Favorites = () => {
                                 basePath='https://image.tmdb.org/t/p/w300/'
                                 handleClick={handleClick}
                                 >
-                                    <WaterMark content='Click here for more information'/>
+                                    <WaterMark content='CLICK FOR MORE DETAILS'/>
                                 </Card>
                         
                     })

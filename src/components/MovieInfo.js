@@ -23,10 +23,10 @@ export const MovieInfo = ({movie, basePath, buttonTitle}) => {
                     <div className='detail-container'>
                         <div>
                             <h4>{title && title}</h4>
-                            <p>{overview && overview}</p>
-                            <p>Release date: <span>{release_date && release_date}</span></p>
-                            <p>Genres: {genres && genres.map(e => e.name).join(', ') }</p>
-                            <p>Rating: {vote_average && vote_average}</p>
+                            <p className='overview'>{overview && overview}</p>
+                            <p><span>Release date:</span>  {release_date && release_date}</p>
+                            <p><span>Genres:</span> {genres && genres.map(e => e.name).join(', ') }</p>
+                            <p><span>Rating:</span> {vote_average && vote_average}</p>
                         </div>
                         <button>{buttonTitle}</button>
                     </div>

@@ -1,14 +1,44 @@
 .movie-info {
 
+    height: 100%;
+    
     .movie-info-container {
         display: flex;
+        height: 100%;
 
-        
         .detail-container {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+
+            .overview {
+                margin-bottom: 1rem;
+            }
+
+            p span {
+                font-weight: bold;
+            }
+            
+            button {
+                background-color: red;
+                color: white;
+                font-size: 1rem;
+                letter-spacing: 1px;
+                border: none;
+                border-radius: 0.5rem;
+                height: 3rem;
+                width: 80%;
+            }
         }
 
+        .poster-container {
+            
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
     }
 }
