@@ -1,35 +1,33 @@
-import { useEffect, useState } from "react";
-import {Card} from "./../components/Card";
-import { MovieInfo } from "../components/MovieInfo";
+import { useState, useEffect } from 'react';
+import {Card} from './../components/Card';
+import { MovieInfo } from '../components/MovieInfo';
 import {Modal} from '../components/Modal';
-import useModal from "../hooks/useModal";
-import { getOneMovie } from "../services/getOneMovie";
-import { WaterMark } from "../components/WaterMark";
+import useModal from '../hooks/useModal';
 
 export const Favorites = () => {
 
-    const [movie, setMovie] = useState(null); 
-    const [movieId, setMovieId] = useState('');
+    const [clickedMovieId, setClickedMovieId] = useState('');
+    const [favorites, setFavorites] = useState(null);
     const [isOpen, openModal, closeModal] = useModal();
 
-    let favorites = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        favorites.push( JSON.parse(localStorage.getItem(localStorage.key(i))))
-    }
-
-    useEffect(()=> {
-
-        const loadMovie = async ()=> {
-            const response = await getOneMovie(movieId); 
-            if (response) setMovie(response.data)
-        }
-        loadMovie();
-
-    },[movieId]);
-
-    const handleClick = (e) => {
+    useEffect(()=>{
         
-        setMovieId( e.currentTarget.dataset.movieId);
+        const loadFavorites = ()=> {
+            let tempArray = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                tempArray.push( JSON.parse(localStorage.getItem(localStorage.key(i))));
+            };
+            if (tempArray) {
+                tempArray.sort((a, b) => b.timeStamp - a.timeStamp);
+                setFavorites(tempArray);
+            }
+        }
+        loadFavorites();
+    },[])
+    
+    const handleCardClick = (movieId) => {
+        
+        setClickedMovieId( movieId ) ;
         openModal();
 
     }
@@ -38,17 +36,16 @@ export const Favorites = () => {
         <>
             <div id='cards-container' className='cards-container'>
             {
-                favorites.length > 0 &&
+                favorites &&
                     favorites.map(fav => {
                         return <Card
-                                movie={fav}
-                                key={fav.id}
-                                basePath='https://image.tmdb.org/t/p/w300/'
-                                handleClick={handleClick}
-                                >
-                                    <WaterMark content='CLICK FOR MORE DETAILS'/>
-                                </Card>
-                        
+                                    key={fav.id}
+                                    movie={fav}
+                                    basePath='https://image.tmdb.org/t/p/w300/'
+                                    handleClick={handleCardClick}
+                                    withWaterMark={true}
+                                />
+                               
                     })
             }
             </div>
@@ -56,12 +53,13 @@ export const Favorites = () => {
                 isOpen={isOpen}
                 closeModal={closeModal}
             >   
-                { movie && <MovieInfo movie={movie} 
-                                      basePath = 'https://image.tmdb.org/t/p/w300/'
-                                      buttonTitle='Remove from favorites'
-                            /> }
+                { clickedMovieId && <MovieInfo
+                                movieId={clickedMovieId} 
+                                basePath = 'https://image.tmdb.org/t/p/w300/'
+                                closeWindow={closeModal}
+                            />
+                }
             </Modal>
         </>
     )
-
 }

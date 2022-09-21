@@ -1,12 +1,12 @@
 import './WaterMark.scss';
-export const WaterMark = ({content}) => {
+export const WaterMark = ({text}) => {
     
     return (
         <div className='water-mark-container'>
             <div className='wrapper'>
             <div className='water-mark'>
                 
-                <p>{content}</p>
+                <p>{text}</p>
 
             </div>
             </div>
