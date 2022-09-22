@@ -1,7 +1,5 @@
-import { WaterMark } from "./WaterMark"; // Refactorize, this should be part of the Card component.
-
+import { WaterMark } from "./WaterMark"; 
 import './Card.scss';
-//import placeHolder from './Card.jpg';
 
 export const Card = ({ movie, basePath, handleClick, withWaterMark }) => {
     

@@ -9,5 +9,4 @@ export const MoviesGrid = ({children}) => {
         </div>
     )
 
-
 }

@@ -1,4 +1,4 @@
-    .searcher {
+.searcher {
 
         display: flex;
         align-items: center;
@@ -20,7 +20,6 @@
         }
     
         .search-button {
-            //background: url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat;
             width: 4rem;
             height: 2.5rem;
             display: flex;
@@ -30,14 +29,11 @@
     
             img {
                 width: 30%;
-                //object-fit: cover;
             }
 
             &:hover {
                 cursor: pointer;
             }
         }
-    
-    
 
 }

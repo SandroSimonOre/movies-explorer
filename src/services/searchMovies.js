@@ -4,8 +4,6 @@ import { URL_BASE } from '../config';
 
 export const searchMovies = async (url, otherParams) => {
 
-    //if (!searchText) return;
-
     try {
 
         const response= await axios({

@@ -1,10 +1,11 @@
-
-import axios from "axios";
-import  { API_KEY } from '../config';
-
 import { useState, useRef, useEffect } from 'react';
 import {Card} from '../components/Card';
 import { MoviesGrid } from "./MoviesGrid";
+import { searchMovies } from "../services/searchMovies";
+import { MovieInfo } from "../components/MovieInfo";
+import {Modal} from '../components/Modal';
+import {useModal} from "../hooks/useModal";
+
 import './Discovering.scss';
 
 export const Discovering = () => {
@@ -13,6 +14,8 @@ export const Discovering = () => {
     const [pageNum, setPageNum] = useState(1);
     const [lastElement, setLastElement] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
+    const [clickedMovieId, setClickedMovieId] = useState('');
+    const [isOpen, openModal, closeModal] = useModal();
     
     const observer = useRef(
         new IntersectionObserver(
@@ -24,26 +27,23 @@ export const Discovering = () => {
             })
     );
 
-    const getData = async () => {
     
-        setLoading(true);
-    
-        let response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`
-        );
-    
-        setAllMovies( allMovies.concat(response.data.results) );
-        
-        setTotalPages(4);
-        setLoading(false);
-    
-    };
 
     useEffect(() => {
         
         if (pageNum <= totalPages) {
-
-            getData();
+            
+            setLoading(true);
+            
+            const loadData = async () => {
+                const response = await searchMovies('discover/movie', {page:pageNum});
+                setAllMovies( allMovies.concat(response.data.results) );
+                setTotalPages(response.data.total_pages);
+            };
+            loadData();
+            
+            
+            setLoading(false);
         
         }
     
@@ -66,9 +66,11 @@ export const Discovering = () => {
         };
     }, [lastElement]);
 
-    const handleCardClick = () => {
-        //setClickedMovieId( movieId ) ;
-        //openModal();
+    const handleCardClick = movieId => {
+    
+        setClickedMovieId( movieId );
+        openModal();
+
     }
 
     
@@ -106,7 +108,18 @@ export const Discovering = () => {
                 </div>
                 {loading && <div className='loader'>loading...</div>}
                 {pageNum - 1 === totalPages && ( <div className='no-more'>--- This is the end of the list ---</div>)}
-
+            
+                <Modal
+                    isOpen={isOpen}
+                    closeModal={closeModal}
+                >   
+                    { clickedMovieId && <MovieInfo
+                            movieId={clickedMovieId} 
+                            basePath = 'https://image.tmdb.org/t/p/w300/'
+                            closeWindow={closeModal}
+                        />
+                    }
+                </Modal>
             </div>
         
     );

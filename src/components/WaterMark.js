@@ -1,4 +1,5 @@
 import './WaterMark.scss';
+
 export const WaterMark = ({text}) => {
     
     return (
