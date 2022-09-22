@@ -1,27 +1,26 @@
-import { Routes, Route, Navigate, useSearchParams } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {Header} from './components/Header';
 import {Sidebar} from './containers/Sidebar';
 import {Main} from './containers/Main';
-import {CardsContainer} from './containers/CardsContainer';
+
+import {Discovering} from './containers/Discovering';
 import {Favorites} from './containers/Favorites';
 import {Trending} from './containers/Trending';
+import {Searching} from "./containers/Searching";
 
-import {SearchResults} from "./containers/SearchResults";
-// import Modal from './components/Modal';
 import './App.scss'
 
-const App = () => {
+export const App = () => {
     return (
-        <div className='App'>  
+        <div id='app' className='app'>  
 
             <Routes>
 
-                <Route path='/' element = {<Navigate to = '/favorites' />} />
-                <Route path='/trending' element = { <TrendingMovies /> } />
-                <Route path='/favorites' element = { <FavoriteMovies /> } />
-                <Route path='/discovering' element = { <DiscoveringMovies /> } />
-                {/* <Route path='/recommendations' element = { <RecommendationsMovies /> } /> */}
-                <Route path='/search' element = { <SearchMovies /> } />
+                <Route exact path='/' element = {<Navigate to = '/favorites' />} />
+                <Route exact path='/favorites' element = { <FavoriteComponent /> } />
+                <Route exact path='/trending' element = { <TrendingComponent /> } />
+                <Route exact path='/discovering' element = { <DiscoveringComponent /> } />
+                <Route exact path='/search' element = { <SearchingComponent /> } />
                 
             </Routes>
 
@@ -30,7 +29,7 @@ const App = () => {
 }
 
 
-const DiscoveringMovies = () => {
+const DiscoveringComponent = () => {
     
     return (
         <>
@@ -38,13 +37,13 @@ const DiscoveringMovies = () => {
             <Sidebar />
             <Main>
                 {/* <CategoriesSlider /> */}
-                <CardsContainer />
+                <Discovering />
             </Main>
         </>
     )
 }
 
-const TrendingMovies = () => {
+const TrendingComponent = () => {
     return (
         <>
             <Header />
@@ -57,7 +56,7 @@ const TrendingMovies = () => {
     )
 }
 
-const FavoriteMovies = () => {
+const FavoriteComponent = () => {
     return (
         <>
             <Header />
@@ -71,23 +70,16 @@ const FavoriteMovies = () => {
     )
 }
 
-const SearchMovies = () => {
-    
-    const [query] = useSearchParams();
-    const search = query.get("query");
+const SearchingComponent = () => {
     
     return (
         <>
             <Header />
             <Sidebar />
             <Main>
-                {/* <CategoriesSlider /> */}
-                <SearchResults key={search} />
+                <Searching key='ola' />
             </Main>
             
         </>
     )
 }
-
-
-export default App;

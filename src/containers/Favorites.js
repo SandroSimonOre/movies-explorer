@@ -4,6 +4,8 @@ import { MovieInfo } from '../components/MovieInfo';
 import {Modal} from '../components/Modal';
 import useModal from '../hooks/useModal';
 
+//import './Favorites.scss'
+
 export const Favorites = () => {
 
     const [clickedMovieId, setClickedMovieId] = useState('');
@@ -33,7 +35,7 @@ export const Favorites = () => {
     }
 
     return (
-        <>
+        <div className='favorites'>
             <div id='cards-container' className='cards-container'>
             {
                 favorites &&
@@ -60,6 +62,6 @@ export const Favorites = () => {
                             />
                 }
             </Modal>
-        </>
+        </div>
     )
 }

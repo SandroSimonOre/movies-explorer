@@ -1,0 +1,41 @@
+.searching {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    //position: relative;
+    //overflow: hidden;
+    //height: 60%;
+    
+
+    .searcher-container {
+        //background-color: yellow;
+        display: flex;
+        //align-items: center;
+        
+        margin: 0.3rem;
+        width: 30rem;
+        //height: 200rem;
+        align-self: center;
+        
+        
+    }   
+    .grid-wrapper {
+
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 0.8rem;
+            background-color: black;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: gray; 
+        }
+    
+    }
+    
+}

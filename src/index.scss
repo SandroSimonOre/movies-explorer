@@ -1,11 +1,11 @@
 * {
     margin:  0;
     padding: 0;
+    
+    body {
+        overflow: hidden;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: black;   
+    }
 }
   
-body {
-    overflow: hidden;
-    /* background-color: yellow; */
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: black;   
-}

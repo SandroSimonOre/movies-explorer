@@ -1,10 +1,9 @@
 import './MenuButton.scss'
-const MenuButton = () => {
+export const MenuButton = () => {
     
     const handleClickMenuButton = () => {
+        document.getElementById('app').classList.toggle('alt-layout');
         document.getElementById('sidebar').classList.toggle('express-sidebar');
-        document.getElementById('main').classList.toggle('extended-main');
-        document.getElementById('cards-container').classList.toggle('extended-cards-container');
     }
 
     return (
@@ -17,4 +16,3 @@ const MenuButton = () => {
         
     )
 }
-export default MenuButton;

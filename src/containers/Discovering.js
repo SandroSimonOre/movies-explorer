@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import axios from "axios";
 import  { API_KEY } from '../config';
 
-import Card from '../components/Card';
-import './Test.scss';
+import {Card} from '../components/Card';
+//import './CardsContainer.scss';
 
-const Test = () => {
+export const Discovering = () => {
     const [loading, setLoading] = useState(true);
     const [allMovies, setAllMovies] = useState([]);
     const [pageNum, setPageNum] = useState(1);
@@ -27,11 +27,7 @@ const Test = () => {
         let response = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`
         );
-        //let all = new Set([...allMovies, ...response.data.results]);
-        //let all = [...allMovies, ...response.data.results];
-        
         setAllMovies( allMovies.concat(response.data.results) );
-        //if ( totalPages === 1 ) setTotalPages(response.data.total_pages);
         
         setTotalPages(4);
         setLoading(false);
@@ -51,24 +47,21 @@ const Test = () => {
 
         if (currentElement) {
             currentObserver.observe(currentElement);
-            //observer.current.observe(currentElement);
         }
 
         return () => {
             if (currentElement) {
                 currentObserver.unobserve(currentElement);
-                //observer.current.unobserve(currentElement);
             }
         };
     }, [lastElement]);
 
     
     return (
-        <div className='Test'>
-            <div className='container'>
-                <h1>All movies</h1>
-
-                <div className='movies-grid'>
+        
+            <>
+                
+                <div id='cards-container' className='cards-container'>
                     {allMovies.length > 0 &&
                         allMovies.map((movie, index) => {
                             return (index === allMovies.length - 1 &&
@@ -95,9 +88,7 @@ const Test = () => {
                 {loading && <div className='loader'>loading...</div>}
                 {pageNum - 1 === totalPages && ( <div className='no-more'>--- This is the end of the list ---</div>)}
 
-            </div>
-        </div>
+            </>
+        
     );
 };
-
-export default Test;

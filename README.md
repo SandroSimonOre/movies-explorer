@@ -4,6 +4,12 @@
 Consumo de la API de TMDB
 
 ## Funcionalidad
+### CSS
+
+### JavaScript
+
+### React
+
 * Al hacer clic en el botón de menú el sidebar se ocultará o mostrará.
 * Al darle clic en uno de las imágenes se muestra un popup con más detalles sobre la película elegida tales como: resumen, votos, director, año...
 * Los tags o etiquetas se muestran según sean necesarios y están en función a la lista actual. Es decir, si en la lista actual solo hay dramas y comedias entonces solo se mostrarán dichas etiquetas.
