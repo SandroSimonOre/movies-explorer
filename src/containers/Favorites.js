@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {Card} from './../components/Card';
 import { MovieInfo } from '../components/MovieInfo';
 import {Modal} from '../components/Modal';
-import useModal from '../hooks/useModal';
+import {useModal} from '../hooks/useModal';
 
 //import './Favorites.scss'
 

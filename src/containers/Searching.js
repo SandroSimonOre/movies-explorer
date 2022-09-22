@@ -1,5 +1,4 @@
 import InfiniteScroll from "react-infinite-scroll-component";
-import axios from 'axios';
 import { useEffect, useState } from "react";
 
 import {Card} from "../components/Card";
@@ -9,10 +8,10 @@ import { MovieInfo } from "../components/MovieInfo";
 import {MoviesGrid} from '../containers/MoviesGrid';
 import {Searcher} from "../components/Searcher";
 import {Modal} from '../components/Modal';
-import useModal from "../hooks/useModal";
+import {useModal} from "../hooks/useModal";
+import { searchMovies } from "../services/searchMovies";
 
 import './Searching.scss';
-import { API_KEY } from "../config";
 
 export const Searching = () => {
 
@@ -26,38 +25,26 @@ export const Searching = () => {
     const [clickedMovieId, setClickedMovieId] = useState('');
     const [isOpen, openModal, closeModal] = useModal();
 
-    const getData = async () => {
-
-        setIsLoading(true);
-        const instance = axios.create();
-        instance.defaults.baseURL = "https://api.themoviedb.org/3";
-        const response = await instance.get('/search/movie' , {
-            params: { query: searchText, api_key: API_KEY, page: page }
-        });
-        
-        setMovies( previousMovies => previousMovies.concat(response.data.results) );
-        setHasMore( response.data.page < response.data.total_pages);
-        setIsLoading(false);
-        
-    };
-
     useEffect(() => {
         
-        if ((searchText !== previousSearch)) setMovies([]);
+        if (searchText !== previousSearch) setMovies([]);
         if (searchText) {
             
-            getData();
+            setIsLoading(true);
+            
+            const loadData = async ()=> {
+                const response = await searchMovies('search/movie', {query: searchText, page: page });
+                setMovies( previousMovies => previousMovies.concat(response.data.results) );
+                setHasMore( response.data.page < response.data.total_pages);
+            };
+            loadData();
+
+            setIsLoading(false);
+            
             setPreviousSearch(searchText);
         }
         
     }, [searchText, page]);
-
-    /*
-    if (!isLoading && movies.length === 0) {
-        return <Empty />;
-    };
-    */
-    
     
     const handleCardClick = movieId => {
     
@@ -72,7 +59,7 @@ export const Searching = () => {
             <div className='searcher-container'>
                 <Searcher setSearchText={setSearchText}/>
             </div>
-            
+
             {!isLoading && movies.length === 0
                 ?
                     <Empty />
