@@ -1,4 +1,5 @@
 .sidebar {
+
     grid-column-start: 1;
     grid-column-end: 2;
     display: flex;
@@ -6,49 +7,34 @@
     justify-content: space-between;
     width: 100%;
     
-
-    
     .link {
         text-decoration: none;
         color: white;
     }
 
+    .active {
+        color: yellow;
+    }
+
     .menu-item {
         display: flex;
+        height: 5rem;
     }
-    
 
-    .more-info {
-        padding: 5%;
-        width: 90%;
-        height: 40%;
-    }
 }
 
 .express-sidebar {
 
-    //grid-column-start: 1;
-    //grid-column-end: 2;
-
-    .menu-item {
-        //display: flex;
-        //justify-content: center;
-        //align-items: center;
-        height: 5rem;
-    }
-    //background-color: red;
     .menu-item .item-title {
+
         display: none;
+
     }
 
     .menu-item .item-icon img{
-        //display: none;
+
         width: 3rem;
         height: 3rem;
-    }
-
-    .more-info {
-        display: none;
     }
 
 }
