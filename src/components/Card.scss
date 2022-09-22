@@ -4,6 +4,10 @@
     img {
         border-radius: 5px;
         width: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128);
+        border-width: 0.5px;
+    
     }
 
     span {
@@ -17,15 +21,18 @@
     }   
 }
 
+/*
 .hidden {
     display: none;
     border-color: yellow;
     border-style: solid;
     height: 10%;
 }
-
+*/
+/*
 .placeholder {
     &:hover {
         cursor:auto;
     }
 }
+*/

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import {Card} from './../components/Card';
+import { MoviesGrid } from './MoviesGrid';
 import { MovieInfo } from '../components/MovieInfo';
 import {Modal} from '../components/Modal';
 import {useModal} from '../hooks/useModal';
 
-//import './Favorites.scss'
+import './Favorites.scss'
 
 export const Favorites = () => {
 
@@ -36,7 +37,8 @@ export const Favorites = () => {
 
     return (
         <div className='favorites'>
-            <div id='cards-container' className='cards-container'>
+            <div id='grip-wrapper' className='grip-wrapper'>
+            <MoviesGrid>
             {
                 favorites &&
                     favorites.map(fav => {
@@ -50,6 +52,7 @@ export const Favorites = () => {
                                
                     })
             }
+            </MoviesGrid>
             </div>
             <Modal
                 isOpen={isOpen}

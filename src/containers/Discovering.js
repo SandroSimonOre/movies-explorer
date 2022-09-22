@@ -1,9 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+
 import axios from "axios";
 import  { API_KEY } from '../config';
 
+import { useState, useRef, useEffect } from 'react';
 import {Card} from '../components/Card';
-//import './CardsContainer.scss';
+import { MoviesGrid } from "./MoviesGrid";
+import './Discovering.scss';
 
 export const Discovering = () => {
     const [loading, setLoading] = useState(true);
@@ -23,20 +25,28 @@ export const Discovering = () => {
     );
 
     const getData = async () => {
+    
         setLoading(true);
+    
         let response = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`
         );
+    
         setAllMovies( allMovies.concat(response.data.results) );
         
         setTotalPages(4);
         setLoading(false);
+    
     };
 
     useEffect(() => {
+        
         if (pageNum <= totalPages) {
+
             getData();
+        
         }
+    
     }, [pageNum]);
 
     useEffect(() => {
@@ -56,12 +66,18 @@ export const Discovering = () => {
         };
     }, [lastElement]);
 
+    const handleCardClick = () => {
+        //setClickedMovieId( movieId ) ;
+        //openModal();
+    }
+
     
     return (
         
-            <>
+            <div className='discovering' id='discovering'>
                 
-                <div id='cards-container' className='cards-container'>
+                <div id='grip-wrapper' className='grip-wrapper'>
+                <MoviesGrid>
                     {allMovies.length > 0 &&
                         allMovies.map((movie, index) => {
                             return (index === allMovies.length - 1 &&
@@ -81,14 +97,17 @@ export const Discovering = () => {
                                     movie={movie}
                                     key={movie.id}
                                     basePath='https://image.tmdb.org/t/p/w300/'
+                                    handleClick={handleCardClick}
+                                    withWaterMark={true}
                                 />
                             );
                         })}
+                </MoviesGrid>
                 </div>
                 {loading && <div className='loader'>loading...</div>}
                 {pageNum - 1 === totalPages && ( <div className='no-more'>--- This is the end of the list ---</div>)}
 
-            </>
+            </div>
         
     );
 };

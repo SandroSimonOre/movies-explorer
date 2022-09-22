@@ -12,8 +12,8 @@ export const MovieInfo = ({movieId, basePath, closeWindow}) => {
         if (isFavorite) {
             localStorage.removeItem(movieId)
         } else {
-            const movieWithDate = {...movie, timeStamp: Date.now()}
-            localStorage.setItem(movieId, JSON.stringify(movieWithDate))
+            const movieWithDate = {...movie, timeStamp: Date.now()};
+            localStorage.setItem(movieId, JSON.stringify(movieWithDate));
         }
         closeWindow();
     }
@@ -21,6 +21,7 @@ export const MovieInfo = ({movieId, basePath, closeWindow}) => {
     useEffect(()=> {
 
         const loadMovie = async ()=> {
+            
             const response = await getOneMovie(movieId); 
             if (response) setMovie(response.data)
         }
