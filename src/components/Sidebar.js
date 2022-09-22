@@ -8,21 +8,34 @@ export const Sidebar = () => {
         <div id='sidebar' className='sidebar'>
             
             <div className='menu-container'>
-                
-                <NavLink className='link' to = '/favorites'>
-                    <MenuItem title = 'Favorites' url = 'https://cdn-icons-png.flaticon.com/512/3507/3507694.png' />
+                <NavLink to = '/favorites'>
+                <div className='menu-item-container'>
+                    
+                        <MenuItem title = 'Favorites' url = 'https://cdn-icons-png.flaticon.com/512/3507/3507694.png' />
+                    
+                </div>
                 </NavLink>
 
-                <NavLink className='link' to = '/trending'>
-                    <MenuItem title = 'Trending' url = 'https://cdn-icons-png.flaticon.com/512/3121/3121768.png' />
+                <NavLink to = '/trending'>
+                <div className='menu-item-container'>
+                    
+                        <MenuItem title = 'Trending' url = 'https://cdn-icons-png.flaticon.com/512/3121/3121768.png' />
+                    
+                </div>
                 </NavLink>
-                
-                <NavLink className='link' to = '/discovering'>
-                    <MenuItem title = 'Discovering' url = 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' />
+                <NavLink to = '/discovering'>
+                <div className='menu-item-container'>
+                    
+                        <MenuItem title = 'Discovering' url = 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' />
+                    
+                </div>
                 </NavLink>
-            
-                <NavLink className='link' to = '/search'>
-                    <MenuItem title = 'Search' url = 'https://cdn-icons-png.flaticon.com/512/1055/1055645.png' />
+                <NavLink to = '/search'>
+                <div className='menu-item-container'>
+                    
+                        <MenuItem title = 'Search' url = 'https://cdn-icons-png.flaticon.com/512/1055/1055645.png' />
+                    
+                </div>
                 </NavLink>
 
             </div>
