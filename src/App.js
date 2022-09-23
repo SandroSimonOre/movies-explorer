@@ -16,7 +16,7 @@ export const App = () => {
 
             <Routes>
 
-                <Route path='/' element = {<Navigate to = '/favorites' />} />
+                <Route path='/' element = {<Navigate to = '/trending' />} />
                 
                 <Route path='/favorites' element = { 
                         <> 
