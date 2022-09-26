@@ -1,0 +1,24 @@
+.categories {
+    display: flex;
+    flex-direction: column;
+
+    .categories-container {
+        padding-top: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 3rem;
+    }
+
+    button {
+        display: inline-block;
+        width: 16rem;
+        height: 4rem;
+        margin: auto;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.3rem;
+    }
+    
+}
