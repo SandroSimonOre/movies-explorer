@@ -3,7 +3,7 @@ import { API_KEY } from '../config';
 import { URL_BASE } from '../config';
 
 export const searchMovies = async (url, otherParams) => {
-
+    
     try {
 
         const response= await axios({

@@ -5,7 +5,7 @@ import {Main} from './containers/Main';
 import {Discover} from './containers/Discover';
 import {Favorites} from './containers/Favorites';
 import {Trending} from './containers/Trending';
-import {Searching} from "./containers/Searching";
+import {Search} from "./containers/Search";
 
 import './App.scss'
 
@@ -56,7 +56,7 @@ export const App = () => {
                             <Header />
                             <Sidebar />
                             <Main>
-                                <Searching />
+                                <Search />
                             </Main>
                         </>
                     } 

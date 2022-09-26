@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import {Card} from './../components/Card';
+import { Card } from './../components/Card';
 import { MoviesGrid } from './MoviesGrid';
 import { MovieInfo } from '../components/MovieInfo';
-import {Modal} from '../components/Modal';
-import {useModal} from '../hooks/useModal';
+import { Modal } from '../components/Modal';
+import { useModal } from '../hooks/useModal';
 
 import './Favorites.scss'
 
@@ -38,31 +38,31 @@ export const Favorites = () => {
     return (
         <div className='favorites'>
             <div id='grip-wrapper' className='grip-wrapper'>
-            <MoviesGrid>
-            {
-                favorites &&
-                    favorites.map(fav => {
-                        return <Card
-                                    key={fav.id}
-                                    movie={fav}
-                                    basePath='https://image.tmdb.org/t/p/w300/'
-                                    handleClick={handleCardClick}
-                                    withWaterMark={true}
-                                />
-                               
-                    })
-            }
-            </MoviesGrid>
+                <MoviesGrid>
+                {
+                    favorites &&
+                        favorites.map( favorite => {
+                            return <Card
+                                key={ favorite.id }
+                                movie={ favorite }
+                                basePath='https://image.tmdb.org/t/p/w300/'
+                                handleClick={ handleCardClick }
+                                withWaterMark={ true }
+                            />
+                                
+                        })
+                }
+                </MoviesGrid>
             </div>
             <Modal
                 isOpen={isOpen}
                 closeModal={closeModal}
             >   
                 { clickedMovieId && <MovieInfo
-                                movieId={clickedMovieId} 
-                                basePath = 'https://image.tmdb.org/t/p/w300/'
-                                closeWindow={closeModal}
-                            />
+                        movieId={clickedMovieId} 
+                        basePath = 'https://image.tmdb.org/t/p/w300/'
+                        closeWindow={closeModal}
+                    />
                 }
             </Modal>
         </div>

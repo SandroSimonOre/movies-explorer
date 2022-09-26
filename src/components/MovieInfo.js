@@ -19,7 +19,7 @@ export const MovieInfo = ({movieId, basePath, closeWindow}) => {
     }
 
     useEffect(()=> {
-
+        setMovie(null);
         const loadMovie = async ()=> {
             
             const response = await getOneMovie(movieId); 
