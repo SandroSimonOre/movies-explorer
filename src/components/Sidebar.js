@@ -27,9 +27,9 @@ export const Sidebar = () => {
                     </div>
                 </NavLink>
                 
-                <NavLink to = '/discovering'>
+                <NavLink to = '/discover'>
                     <div className='menu-item-container'>
-                        <MenuItem title = 'Discovering' url = 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' />
+                        <MenuItem title = 'Discover' url = 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' />
                     </div>
                 </NavLink>
                 

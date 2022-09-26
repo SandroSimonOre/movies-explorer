@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import {Header} from './components/Header';
 import {Sidebar} from './components/Sidebar';
 import {Main} from './containers/Main';
-import {Discovering} from './containers/Discovering';
+import {Discover} from './containers/Discover';
 import {Favorites} from './containers/Favorites';
 import {Trending} from './containers/Trending';
 import {Searching} from "./containers/Searching";
@@ -40,12 +40,12 @@ export const App = () => {
                     } 
                 />
                 
-                <Route path='/discovering' element = {
+                <Route path='/discover' element = {
                         <> 
                             <Header />
                             <Sidebar />
                             <Main>
-                                <Discovering />
+                                <Discover />
                             </Main>
                         </>
                     } 
