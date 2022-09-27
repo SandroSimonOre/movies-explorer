@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Card } from './../components/Card';
 import { MoviesGrid } from './MoviesGrid';
 import { MovieInfo } from '../components/MovieInfo';
 import { Modal } from '../components/Modal';
 import { useModal } from '../hooks/useModal';
-
+import { FavoritesProvider } from '../context/FavoritesContext';
 import './Favorites.scss'
 
 export const Favorites = () => {
 
     const [clickedMovieId, setClickedMovieId] = useState('');
-    const [favorites, setFavorites] = useState(null);
+    // const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')));
     const [isOpen, openModal, closeModal] = useModal();
-
-    useEffect(()=>{
+    //const favorites = useContext( FavoritesProvider.c )
+    /*useEffect(()=>{
+        
         
         const loadFavorites = ()=> {
             let tempArray = [];
@@ -26,7 +27,11 @@ export const Favorites = () => {
             }
         }
         loadFavorites();
-    },[])
+    },[])*/
+
+    useEffect( ()=> {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }, [favorites]);
     
     const handleCardClick = (movieId) => {
         
@@ -37,7 +42,8 @@ export const Favorites = () => {
 
     return (
         <div className='favorites'>
-            <div id='grip-wrapper' className='grip-wrapper'>
+            <div id='grid-wrapper' className='grid-wrapper'>
+                
                 <MoviesGrid>
                 {
                     favorites &&
@@ -53,6 +59,8 @@ export const Favorites = () => {
                         })
                 }
                 </MoviesGrid>
+
+                
             </div>
             <Modal
                 isOpen={isOpen}
@@ -65,6 +73,14 @@ export const Favorites = () => {
                     />
                 }
             </Modal>
+            {
+                favorites.length === 0 && 
+                    <h3 className='placeholder'>
+                        No favorites yet. Go to <span>Discover, </span> 
+                        <span>Search</span> or <span>Trending</span> and Click your favorite movies.
+                        Then you will see them here.
+                    </h3>
+            }
         </div>
     )
 }

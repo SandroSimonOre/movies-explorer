@@ -1,69 +1,68 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import {Header} from './components/Header';
-import {Sidebar} from './components/Sidebar';
-import {Main} from './containers/Main';
-import {Discover} from './containers/Discover';
-import {Favorites} from './containers/Favorites';
-import {Trending} from './containers/Trending';
-import {Search} from "./containers/Search";
-
+import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
+import { Main } from './containers/Main';
+import { Discover } from './containers/Discover';
+import { Favorites } from './containers/Favorites';
+import { Trending } from './containers/Trending';
+import { Search } from "./containers/Search";
+import { FavoritesProvider } from "./context/FavoritesContext";
 import './App.scss'
 
 export const App = () => {
-    
+
     return (
         <div id='app' className='app'>  
+            <FavoritesProvider>
+                <Routes>
 
-            <Routes>
+                    <Route path='/' element = {<Navigate to = '/discover' />} />
+                    
+                    <Route path='/discover' element = {
+                            <> 
+                                <Header />
+                                <Sidebar />
+                                <Main>
+                                    <Discover />
+                                </Main>
+                            </>
+                        } 
+                    />
+                    
+                    <Route path='/search' element = { 
+                            <> 
+                                <Header />
+                                <Sidebar />
+                                <Main>
+                                    <Search />
+                                </Main>
+                            </>
+                        } 
+                    />
 
-                <Route path='/' element = {<Navigate to = '/trending' />} />
-                
-                <Route path='/favorites' element = { 
-                        <> 
-                            <Header />
-                            <Sidebar />
-                            <Main>
-                                <Favorites />
-                            </Main>
-                        </>
-                    }
-                 />
-                
-                <Route path='/trending' element = { 
-                        <> 
-                            <Header />
-                            <Sidebar />
-                            <Main>
-                                <Trending />
-                            </Main>
-                        </>
-                    } 
-                />
-                
-                <Route path='/discover' element = {
-                        <> 
-                            <Header />
-                            <Sidebar />
-                            <Main>
-                                <Discover />
-                            </Main>
-                        </>
-                    } 
-                />
-                
-                <Route path='/search' element = { 
-                        <> 
-                            <Header />
-                            <Sidebar />
-                            <Main>
-                                <Search />
-                            </Main>
-                        </>
-                    } 
-                />
-                
-            </Routes>
-
+                    <Route path='/trending' element = { 
+                            <> 
+                                <Header />
+                                <Sidebar />
+                                <Main>
+                                    <Trending />
+                                </Main>
+                            </>
+                        } 
+                    />
+                    <Route path='/favorites' element = { 
+                            <> 
+                                <Header />
+                                <Sidebar />
+                                <Main>
+                                    <Favorites />
+                                </Main>
+                            </>
+                        }
+                    />   
+                    
+                </Routes>
+            </FavoritesProvider>
         </div> 
     )
 }
