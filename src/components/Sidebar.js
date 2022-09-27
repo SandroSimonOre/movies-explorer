@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
 import {MenuItem} from './MenuItem'
 import './Sidebar.scss'
+
 export const Sidebar = () => {
 
     return (
         
         <div id='sidebar' className='sidebar'>
             
-            <div className='sidebar__menu-container'>
+            <div className='menu-container'>
 
                 <NavLink to = '/discover'>
                     <div className='menu-item-container'>
