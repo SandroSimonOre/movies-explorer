@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Card } from './../components/Card';
 import { MoviesGrid } from './MoviesGrid';
 import { MovieInfo } from '../components/MovieInfo';
@@ -22,7 +22,7 @@ export const Favorites = () => {
 
     return (
         <div className='favorites'>
-            <div id='grid-wrapper' className='grid-wrapper'>
+            <div id='grid-wrapper' className='favorites__grid-wrapper'>
                 
                 <MoviesGrid>
                 {
@@ -55,7 +55,7 @@ export const Favorites = () => {
             </Modal>
             {
                 favorites.length === 0 && 
-                    <h3 className='placeholder'>
+                    <h3 className='favorites__placeholder'>
                         No favorites yet. Go to <span>Discover, </span> 
                         <span>Search</span> or <span>Trending</span> and Click your favorite movies.
                         Then you will see them here.

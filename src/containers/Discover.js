@@ -1,8 +1,6 @@
 import { useState } from 'react';
-//import { Category } from '../components/Category';
 import {Categories} from './Categories';
 import { Movies } from './Movies';
-import './Discover.scss';
 import { useEffect } from 'react';
 import { searchMovies } from '../services/getAPIData';
 
@@ -23,7 +21,7 @@ export const Discover = () => {
 
     const updateCategories = (category) => {
         
-        if (category.id === 0 )/* && category.selected === false) */ {
+        if (category.id === 0 ) {
             
             setCategories( previous => {
             

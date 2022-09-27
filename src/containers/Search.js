@@ -57,7 +57,7 @@ export const Search = () => {
     return (
         <div className='search'>
             
-            <div className='searcher-container'>
+            <div className='search__searcher-container'>
                 <Searcher setSearchText={setSearchText}/>
             </div>
 
@@ -65,7 +65,7 @@ export const Search = () => {
                 ?
                     <Empty />
                 :
-                    <div id='grid-wrapper' className='grid-wrapper'>
+                    <div id='grid-wrapper' className='search__grid-wrapper'>
                         <InfiniteScroll
                             dataLength={movies.length}
                             hasMore={hasMore}

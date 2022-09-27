@@ -11,11 +11,11 @@
     justify-content: space-between;
     align-items: center;
     
-    .menu-button-container {
+    &__menu-button-container {
         margin-left: 1rem;
     }
 
-    .logo-container {
+    &__logo-container {
         width: 24rem;
         margin-right: 1rem;
     }

@@ -7,7 +7,7 @@ export const Sidebar = () => {
         
         <div id='sidebar' className='sidebar'>
             
-            <div className='menu-container'>
+            <div className='sidebar__menu-container'>
 
                 <NavLink to = '/discover'>
                     <div className='menu-item-container'>

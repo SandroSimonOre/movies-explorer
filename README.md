@@ -16,11 +16,11 @@ React.js, JavaScript, Sass.
 ### Intersection observer
 It was used to download the data only when it is required. Since there are thounsands of records, it would not be efficient to download all the information when we only need to show twenty records.  
 
-### localStorage
-As the user sees the movies, he/she can save them by clicking on them. localStorage has been used for this purpose.
+### localStorage and Context API
+As the user sees the movies, he/she can save them by clicking on them. localStorage has been used for this purpose. Since all of the other components need to have access to the favorites, I included Context API to manage it.
 
 ### React router DOM
-To navigate through the different parts of the app, React Router Dom has been implemented.
+In order to navigate through the different parts of the app, React Router Dom has been implemented.
 
 ### Flexbox and Grid
 Grid and Flexbox have been used to display movies on a grid.
