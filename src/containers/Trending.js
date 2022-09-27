@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import {Card} from '../components/Card';
 import { MoviesGrid } from "./MoviesGrid";
-import { searchMovies } from "../services/searchMovies";
+import { searchMovies } from "../services/getAPIData";
 import { MovieInfo } from "../components/MovieInfo";
 import {Modal} from '../components/Modal';
 import {useModal} from "../hooks/useModal";
+import { v4 as uuidv4 } from 'uuid';
 
 import './Trending.scss';
 
@@ -27,8 +28,6 @@ export const Trending = () => {
             })
     );
 
-    
-
     useEffect(() => {
         
         if (pageNum <= totalPages) {
@@ -37,11 +36,10 @@ export const Trending = () => {
             
             const loadData = async () => {
                 const response = await searchMovies('trending/movie/day', {page:pageNum});
-                setAllMovies( allMovies.concat(response.data.results) );
+                setAllMovies( previous => previous.concat(response.data.results) );
                 setTotalPages(response.data.total_pages);
             };
             loadData();
-            
             
             setLoading(false);
         
@@ -97,7 +95,7 @@ export const Trending = () => {
                                 ) : (
                                 <Card
                                     movie={movie}
-                                    key={movie.id}
+                                    key={uuidv4()}
                                     basePath='https://image.tmdb.org/t/p/w300/'
                                     handleClick={handleCardClick}
                                     withWaterMark={true}

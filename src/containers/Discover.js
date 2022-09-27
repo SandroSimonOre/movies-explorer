@@ -4,7 +4,7 @@ import {Categories} from './Categories';
 import { Movies } from './Movies';
 import './Discover.scss';
 import { useEffect } from 'react';
-import { searchMovies } from '../services/searchMovies';
+import { searchMovies } from '../services/getAPIData';
 
 export const Discover = () => {
     const [mode, setMode] = useState('categories');

@@ -4,34 +4,14 @@ import { MoviesGrid } from './MoviesGrid';
 import { MovieInfo } from '../components/MovieInfo';
 import { Modal } from '../components/Modal';
 import { useModal } from '../hooks/useModal';
-import { FavoritesProvider } from '../context/FavoritesContext';
+import { FavoritesContext } from '../store/FavoritesProvider';
 import './Favorites.scss'
 
 export const Favorites = () => {
 
     const [clickedMovieId, setClickedMovieId] = useState('');
-    // const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')));
     const [isOpen, openModal, closeModal] = useModal();
-    //const favorites = useContext( FavoritesProvider.c )
-    /*useEffect(()=>{
-        
-        
-        const loadFavorites = ()=> {
-            let tempArray = [];
-            for (let i = 0; i < localStorage.length; i++) {
-                tempArray.push( JSON.parse(localStorage.getItem(localStorage.key(i))));
-            };
-            if (tempArray) {
-                tempArray.sort((a, b) => b.timeStamp - a.timeStamp);
-                setFavorites(tempArray);
-            }
-        }
-        loadFavorites();
-    },[])*/
-
-    useEffect( ()=> {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }, [favorites]);
+    const { favorites } = useContext( FavoritesContext )
     
     const handleCardClick = (movieId) => {
         

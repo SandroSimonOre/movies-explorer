@@ -6,7 +6,7 @@ import { Discover } from './containers/Discover';
 import { Favorites } from './containers/Favorites';
 import { Trending } from './containers/Trending';
 import { Search } from "./containers/Search";
-import { FavoritesProvider } from "./context/FavoritesContext";
+import { FavoritesProvider } from './store/FavoritesProvider';
 import './App.scss'
 
 export const App = () => {

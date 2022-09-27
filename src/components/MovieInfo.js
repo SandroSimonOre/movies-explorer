@@ -1,21 +1,23 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
 import { getOneMovie } from "../services/getOneMovie";
+import { FavoritesContext } from '../store/FavoritesProvider';
 import './MovieInfo.scss';
 
 export const MovieInfo = ({movieId, basePath, closeWindow}) => {
     
     const [movie, setMovie] = useState(null); 
-    const isFavorite = localStorage.getItem(movieId);
-
+    const {addFavorite, removeFavorite, isFavorite} = useContext(FavoritesContext)
+    
     const handleButtonClick = () => {
-        if (isFavorite) {
-            localStorage.removeItem(movieId)
+        
+        if (isFavorite(movie.id)) {
+            removeFavorite(movie.id)
         } else {
-            const movieWithDate = {...movie, timeStamp: Date.now()};
-            localStorage.setItem(movieId, JSON.stringify(movieWithDate));
+            addFavorite(movie)
         }
+        
         closeWindow();
+        
     }
 
     useEffect(()=> {
@@ -44,8 +46,8 @@ export const MovieInfo = ({movieId, basePath, closeWindow}) => {
                             <p><span>Genres:</span> {movie.genres && movie.genres.map(e => e.name).join(', ') }</p>
                             <p><span>Rating:</span> {movie.vote_average && movie.vote_average}</p>
                         </div>
-                        <button className={isFavorite && 'remove-button'} onClick={handleButtonClick}>
-                            {isFavorite ? 'REMOVE FROM FAVORITES':'ADD TO FAVORITES' }
+                        <button className={isFavorite(movie.id) ? 'remove-button' : ''} onClick={handleButtonClick}>
+                            {isFavorite(movie.id) ? 'REMOVE FROM FAVORITES' : 'ADD TO FAVORITES' }
                         </button>
                     </div>
                     

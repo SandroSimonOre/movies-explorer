@@ -9,7 +9,8 @@ import { MoviesGrid } from './MoviesGrid';
 import { Searcher } from "../components/Searcher";
 import { Modal } from '../components/Modal';
 import { useModal } from "../hooks/useModal";
-import { searchMovies } from "../services/searchMovies";
+import { searchMovies } from "../services/getAPIData";
+import { v4 as uuidv4 } from 'uuid';
 
 import './Search.scss';
 
@@ -79,7 +80,7 @@ export const Search = () => {
                                         return (
                                             <Card
                                                 movie={movie}
-                                                key={movie.id}
+                                                key={uuidv4()}
                                                 basePath='https://image.tmdb.org/t/p/w300/'
                                                 handleClick={handleCardClick}
                                                 withWaterMark={true}
@@ -98,10 +99,10 @@ export const Search = () => {
                         closeModal={closeModal}
                     >   
                         { clickedMovieId && <MovieInfo
-                                                movieId={clickedMovieId} 
-                                                basePath = 'https://image.tmdb.org/t/p/w300/'
-                                                closeWindow={closeModal}
-                                            />
+                                movieId={clickedMovieId} 
+                                basePath = 'https://image.tmdb.org/t/p/w300/'
+                                closeWindow={closeModal}
+                            />
                         }
             </Modal>
             

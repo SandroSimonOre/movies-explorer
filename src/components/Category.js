@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import './Category.scss';
 
 export const Category = ({category, updateCategories}) => {
-    
-    //const [ category ] = useState(category);
     
     const handleClick = ()=> {
         updateCategories(category);

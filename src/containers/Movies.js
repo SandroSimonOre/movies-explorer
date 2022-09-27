@@ -8,8 +8,8 @@ import { MovieInfo } from "../components/MovieInfo";
 import { MoviesGrid } from '../containers/MoviesGrid';
 import { Modal } from '../components/Modal';
 import { useModal } from "../hooks/useModal";
-
-import { searchMovies } from '../services/searchMovies';
+import { v4 as uuidv4 } from 'uuid';
+import { searchMovies } from '../services/getAPIData';
 import './Movies.scss';
 
 export const Movies = ({categories, setMode}) => {
@@ -88,7 +88,7 @@ export const Movies = ({categories, setMode}) => {
                                         return (
                                             <Card
                                                 movie={movie}
-                                                key={movie.id}
+                                                key={uuidv4()}
                                                 basePath='https://image.tmdb.org/t/p/w300/'
                                                 handleClick={handleCardClick}
                                                 withWaterMark={true}
