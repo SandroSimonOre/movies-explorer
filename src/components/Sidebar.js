@@ -1,8 +1,17 @@
 import { NavLink } from "react-router-dom";
-import {MenuItem} from './MenuItem'
+import {MenuItem} from './MenuItem';
+import { About } from "./About";
+import { Modal } from '../components/Modal';
+import { useModal } from "../hooks/useModal";
 import './Sidebar.scss'
 
 export const Sidebar = () => {
+    
+    const [isOpen, openModal, closeModal] = useModal();
+
+    const handleClick = () => {
+        openModal();
+    }
 
     return (
         
@@ -35,6 +44,15 @@ export const Sidebar = () => {
                 </NavLink>
 
             </div>
+
+            <button className="about-button" onClick={handleClick}>About this project</button>
+
+            <Modal
+                isOpen={isOpen}
+                closeModal={closeModal}
+            >   
+                <About />
+            </Modal>
 
         </div>
     )
