@@ -1,9 +1,9 @@
-import './About.scss';
+import styles from  './About.module.scss';
 
 export const About = () => {
 
     return (
-        <div className="about">
+        <div className={styles.about}>
                     <h2>About this project</h2>
                     <h3>Source code:</h3>
                     <p>Click the following link to see this project on GitHub:</p>

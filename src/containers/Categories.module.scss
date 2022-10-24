@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
 
-    &__categories-container {
+    &__categoriesContainer {
         padding-top: 2rem;
         display: grid;
         gap: 2rem;
@@ -10,7 +10,7 @@
         margin-bottom: 3rem;
     }
 
-    &__show-button {
+    &__showButton {
         display: inline-block;
         width: 16rem;
         height: 4rem;

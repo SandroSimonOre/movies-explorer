@@ -10,7 +10,7 @@ import { Modal } from '../components/Modal';
 import { useModal } from "../hooks/useModal";
 import { v4 as uuidv4 } from 'uuid';
 import { searchMovies } from '../services/getAPIData';
-import './Movies.scss';
+import styles from './Movies.module.scss';
 
 export const Movies = ({categories, setMode}) => {
 
@@ -54,7 +54,7 @@ export const Movies = ({categories, setMode}) => {
 
     return (
 
-        <div className='movies'>
+        <div className={styles.movies}>
         
             <div className="movies__tools-bar">
                 <button className="movies__back-button" onClick={()=> setMode('categories') }>&lt; Back</button>

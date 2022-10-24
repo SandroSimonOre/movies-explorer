@@ -7,7 +7,7 @@ import {Modal} from '../components/Modal';
 import {useModal} from "../hooks/useModal";
 import { v4 as uuidv4 } from 'uuid';
 
-import './Trending.scss';
+import styles from  './Trending.module.scss';
 
 export const Trending = () => {
     const [loading, setLoading] = useState(true);
@@ -74,9 +74,9 @@ export const Trending = () => {
     
     return (
         
-            <div className='trending' id='trending'>
+            <div  id='trending' className={styles.trending}>
                 
-                <div id='grip-wrapper' className='trending__grip-wrapper'>
+                <div id='grip-wrapper' /* className='trending__grip-wrapper' */>
                 <MoviesGrid>
                     {allMovies.length > 0 &&
                         allMovies.map((movie, index) => {

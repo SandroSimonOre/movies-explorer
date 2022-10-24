@@ -1,7 +1,6 @@
-.movies-grid {
+.moviesGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
-    overflow-x: hidden;
-    
+    overflow-x: hidden;    
 }

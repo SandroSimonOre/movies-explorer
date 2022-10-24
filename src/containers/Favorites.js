@@ -5,7 +5,7 @@ import { MovieInfo } from '../components/MovieInfo';
 import { Modal } from '../components/Modal';
 import { useModal } from '../hooks/useModal';
 import { FavoritesContext } from '../store/FavoritesProvider';
-import './Favorites.scss'
+import styles from './Favorites.module.scss'
 
 export const Favorites = () => {
 
@@ -21,7 +21,7 @@ export const Favorites = () => {
     }
 
     return (
-        <div className='favorites'>
+        <div className={styles.favorites}>
             <div id='grid-wrapper' className='favorites__grid-wrapper'>
                 
                 <MoviesGrid>
@@ -55,7 +55,7 @@ export const Favorites = () => {
             </Modal>
             {
                 favorites.length === 0 && 
-                    <h3 className='favorites__placeholder'>
+                    <h3 className={styles.favorites__placeholder}>
                         No favorites yet. Go to <span>Discover, </span> 
                         <span>Search</span> or <span>Trending</span> and Click your favorite movies.
                         Then you will see them here.

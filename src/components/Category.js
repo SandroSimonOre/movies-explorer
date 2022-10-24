@@ -1,4 +1,4 @@
-import './Category.scss';
+import styles from './Category.module.scss';
 
 export const Category = ({category, updateCategories}) => {
     
@@ -6,7 +6,7 @@ export const Category = ({category, updateCategories}) => {
         updateCategories(category);
     }
     return (
-        <div className={`category ${category.selected ? 'selected' : ''}`} onClick={ handleClick }>
+        <div className={`${styles.category} ${category.selected ? styles.selected : ''}`} onClick={ handleClick }>
             <span>
                 {category.name}
             </span>

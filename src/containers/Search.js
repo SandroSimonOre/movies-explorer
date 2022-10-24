@@ -12,7 +12,7 @@ import { useModal } from "../hooks/useModal";
 import { searchMovies } from "../services/getAPIData";
 import { v4 as uuidv4 } from 'uuid';
 
-import './Search.scss';
+import styles from './Search.module.scss';
 
 export const Search = () => {
 
@@ -55,9 +55,9 @@ export const Search = () => {
     }
     
     return (
-        <div className='search'>
+        <div className={styles.search}>
             
-            <div className='search__searcher-container'>
+            <div className={styles.search__searcherContainer}>
                 <Searcher setSearchText={setSearchText}/>
             </div>
 
@@ -65,7 +65,7 @@ export const Search = () => {
                 ?
                     <Empty />
                 :
-                    <div id='grid-wrapper' className='search__grid-wrapper'>
+                    <div id='grid-wrapper' className={styles.search__gridWrapper}>
                         <InfiniteScroll
                             dataLength={movies.length}
                             hasMore={hasMore}

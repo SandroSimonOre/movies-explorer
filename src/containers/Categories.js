@@ -1,12 +1,12 @@
 import { Category } from '../components/Category';
-import './Categories.scss';
+import styles from './Categories.module.scss';
 
 export const Categories = ({categories, setMode, updateCategories}) => {
     
     return (
-        <div className='categories'>
+        <div className={styles.categories}>
             
-            <section className='categories__categories-container'>
+            <section className={styles.categories__categoriesContainer}>
                 
                 {
                     categories.length > 0 && categories.map( category => {
@@ -18,7 +18,7 @@ export const Categories = ({categories, setMode, updateCategories}) => {
                     })
                 }
             </section>
-            <button className='categories__show-button' onClick={()=> setMode('movies') }>Show movies</button>    
+            <button className={styles.categories__showButton} onClick={()=> setMode('movies') }>Show movies</button>    
         </div>
         
     )
