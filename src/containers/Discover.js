@@ -3,6 +3,7 @@ import {Categories} from './Categories';
 import { Movies } from './Movies';
 import { useEffect } from 'react';
 import { searchMovies } from '../services/getAPIData';
+import styles from './Discover.module.scss';
 
 export const Discover = () => {
     const [mode, setMode] = useState('categories');
@@ -49,7 +50,7 @@ export const Discover = () => {
 
     return (
         
-        <div className='discover'>
+        <div className={styles.discover}>
             {
                 mode === 'categories' 
                 ? <Categories categories = {categories} setMode = {setMode} updateCategories = { updateCategories } /> 

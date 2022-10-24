@@ -1,11 +1,11 @@
-import './WaterMark.scss';
+import styles from './WaterMark.module.scss';
 
 export const WaterMark = ({text}) => {
     
     return (
-        <div className='water-mark-container'>
-            <div className='wrapper'>
-            <div className='water-mark'>
+        <div className={styles.waterMarkContainer}>
+            <div className={styles.wrapper}>
+            <div className={styles.waterMark}>
                 
                 <p>{text}</p>
 

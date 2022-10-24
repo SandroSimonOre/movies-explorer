@@ -1,13 +1,13 @@
-import './MenuItem.scss';
+import styles from './MenuItem.module.scss';
 
 export const MenuItem = ({url, title}) => {
 
     return (
-        <div className='menu-item'>
-            <div className='item-icon'>
+        <div className={styles.menuItem}>
+            <div className={styles.itemIcon}>
                 <img src={url} alt="" />
             </div>
-            <div className='item-title'>
+            <div className={styles.itemTitle}>
                 {title}
             </div>
             

@@ -1,7 +1,7 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState, useMemo } from "react";
 
-import {Card} from "../components/Card";
+import { Card } from "../components/Card";
 import { Empty } from "../components/Empty";
 import { Spinner } from "../components/Spinner";
 import { MovieInfo } from "../components/MovieInfo";
@@ -56,14 +56,14 @@ export const Movies = ({categories, setMode}) => {
 
         <div className={styles.movies}>
         
-            <div className="movies__tools-bar">
-                <button className="movies__back-button" onClick={()=> setMode('categories') }>&lt; Back</button>
+            <div className={styles.toolsBar}>
+                <button className={styles.backButton} onClick={()=> setMode('categories') }>&lt; Back</button>
         
-                <div className="movies__categories-container">
+                <div className={styles.categoriesContainer}>
                     <p>Selected categories:</p>
                     {
                         categories.length > 0 && categories.filter(e => e.selected === true).map( e => {
-                            return <span key={e.id} className='movies__category'>{e.name}</span>
+                            return <span key={e.id} className={styles.category}>{e.name}</span>
                         })
                     } 
                 </div>
@@ -73,7 +73,7 @@ export const Movies = ({categories, setMode}) => {
                 ?
                     <Empty />
                 :
-                    <div id='grid-wrapper' className='movies__grid-wrapper'>
+                    <div id='grid-wrapper' className={styles.gridWrapper}>
                         <InfiniteScroll
                             dataLength={movies.length}
                             hasMore={hasMore}
@@ -81,7 +81,6 @@ export const Movies = ({categories, setMode}) => {
                             loader={movies.length > 0 && <Spinner />}
                             scrollableTarget='grid-wrapper'
                         >
-                            
                             <MoviesGrid>
                                 {movies.length > 0 &&
                                     movies.map(movie => {

@@ -4,14 +4,14 @@
     flex-direction: column;
     height: 100%;
 
-    &__searcherContainer {
+    .searcherContainer {
         display: flex;
         width: 30rem;
         align-self: center;
         margin: 1rem 0 1rem 0;
         
     }   
-    &__gridWrapper {
+    .gridWrapper {
 
         width: 100%;
         height: 100%;

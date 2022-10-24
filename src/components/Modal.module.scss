@@ -1,4 +1,4 @@
-.modal-background {
+.modalBackground {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,18 +10,18 @@
     justify-content: center;
     align-items: center;
 
-    .modal-container {
+    .modalContainer {
         position: relative;
         width: 60%;
         min-width: 40rem;
         height: 85%;
         background-color: white;
         
-        .modal-content {
+        .modalContent {
             height: 100%;
         }
 
-        .close-button {
+        .closeButton {
             width: 60px;
             height: 20px;
             position: absolute;
@@ -43,6 +43,6 @@
 
 }
 
-.modal-background.is-open {
+.modalBackground.isOpen {
     display: flex;
 }

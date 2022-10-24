@@ -1,19 +1,19 @@
 import ReactDOM from 'react-dom';
-import './Modal.scss'
+import styles from './Modal.module.scss'
 
 export const Modal = ({isOpen, closeModal, children}) => {
     
     return ReactDOM.createPortal(
     
-        <div className={`modal-background ${isOpen && "is-open"}`} onClick={()=>closeModal()}>   
+        <div className={`${styles.modalBackground} ${isOpen && styles.isOpen}`} onClick={()=>closeModal()}>   
     
-            <div className='modal-container' onClick={e => e.stopPropagation()}>
+            <div className={styles.modalContainer} onClick={e => e.stopPropagation()}>
     
-                <button className='close-button' onClick={()=>closeModal()}>
+                <button className={styles.closeButton} onClick={()=>closeModal()}>
                     CLOSE
                 </button>
         
-                <div className='modal-content'>
+                <div className={styles.modalContent}>
                     
                     {children}
                     

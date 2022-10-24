@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Searcher.scss'
+import styles from './Searcher.module.scss'
 
 export const Searcher = ({setSearchText}) => {
 
@@ -16,9 +16,9 @@ export const Searcher = ({setSearchText}) => {
 
     return (
         
-        <form className='searcher' onSubmit={handleSubmit}>
-            <input className='search-input' value={input} type="text" placeholder='Search here' onChange={handleChange} autoFocus />
-                <button className='search-button'>
+        <form className={styles.searcher} onSubmit={handleSubmit}>
+            <input className={styles.searchInput} value={input} type="text" placeholder='Search here' onChange={handleChange} autoFocus />
+                <button className={styles.searchButton}>
                     <img src='https://cdn-icons-png.flaticon.com/512/622/622669.png' alt='' />
                 </button>
         </form>

@@ -1,4 +1,4 @@
-.water-mark-container {
+.waterMarkContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
         width: 100%;
         height: 100%;
 
-        .water-mark {
+        .waterMark {
             display: flex;
             justify-content: center;
             align-items:   center ;
@@ -27,7 +27,7 @@
             }
         }
     
-        &:hover .water-mark {
+        &:hover .waterMark {
             background-color: black;
             opacity: 0.6;
             

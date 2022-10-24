@@ -1,13 +1,13 @@
-.movie-info {
+.movieInfo {
 
     height: 100%;
     box-shadow: 0px 0px 0.8rem 0px white;
     
-    .movie-info-container {
+    .movieInfoContainer {
         display: flex;
         height: 100%;
 
-        .detail-container {
+        .detailContainer {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -36,12 +36,12 @@
                     cursor: pointer;
                 }
             }
-            .remove-button {
+            .removeButton {
                 background-color: red;
             }
         }
 
-        .poster-container {
+        .posterContainer {
             
             img {
                 height: 100%;

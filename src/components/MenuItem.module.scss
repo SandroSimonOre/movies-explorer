@@ -1,16 +1,16 @@
-.menu-item {
+.menuItem {
 
     display: flex;
     align-items: center;
         
-    .item-icon {
+    .itemIcon {
         margin: 0 0.5rem 0 0.5rem;
         img {
             width: 1.5rem;
         }
     }
 
-    .item-title {
+    .itemTitle {
         font-size: 0.9rem;
         letter-spacing: 1px;
     }

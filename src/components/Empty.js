@@ -1,5 +1,5 @@
-import "./Empty.scss";
+import styles from "./Empty.module.scss";
 
 export function Empty() {
-  return <div className='empty'>No Results</div>;
+  return <div className={styles.empty}>No Results</div>;
 }
