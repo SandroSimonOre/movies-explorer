@@ -76,7 +76,7 @@ export const Trending = () => {
         
             <div  id='trending' className={styles.trending}>
                 
-                <div id='grip-wrapper' /* className='trending__grip-wrapper' */>
+                <div id='grip-wrapper'>
                 <MoviesGrid>
                     {allMovies.length > 0 &&
                         allMovies.map((movie, index) => {

@@ -13,36 +13,37 @@ export const Sidebar = () => {
         openModal();
     }
 
+    const menuItems = [
+        {title: 'Discover' , to: '/discover', url: 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' },
+        {title: 'Search' , to: '/search', url: 'https://cdn-icons-png.flaticon.com/512/1055/1055645.png' },
+        {title: 'Trending' , to: '/trending', url: 'https://cdn-icons-png.flaticon.com/512/3121/3121768.png' },
+        {title: 'Favorites' , to: '/favorites', url: 'https://cdn-icons-png.flaticon.com/512/3507/3507694.png' },
+    ]
+
+    const activeStyle = {
+        borderRadius: "0.5rem",
+        borderStyle: "solid",
+        borderWidth: "0.1px"
+    };
+
     return (
         
         <div id='sidebar' className={styles.sidebar}>
             
             <div className={styles.menuContainer}>
 
-                <NavLink to = '/discover'>
-                    <div className={styles.menuItemContainer}>
-                        <MenuItem title = 'Discover' url = 'https://cdn-icons-png.flaticon.com/512/3649/3649527.png' />
-                    </div>
-                </NavLink>
-                
-                <NavLink to = '/search'>
-                    <div className={styles.menuItemContainer}>
-                        <MenuItem title = 'Search' url = 'https://cdn-icons-png.flaticon.com/512/1055/1055645.png' />
-                    </div>
-                </NavLink>
-
-                <NavLink to = '/trending'>
-                    <div className={styles.menuItemContainer}>
-                        <MenuItem title = 'Trending' url = 'https://cdn-icons-png.flaticon.com/512/3121/3121768.png' />
-                    </div>
-                </NavLink>
-
-                <NavLink to = '/favorites'>
-                    <div className={styles.menuItemContainer}>
-                            <MenuItem title = 'Favorites' url = 'https://cdn-icons-png.flaticon.com/512/3507/3507694.png' />
-                    </div>
-                </NavLink>
-
+                {
+                    menuItems.map( item => 
+                    <NavLink 
+                        to = {item.to} 
+                        style={({ isActive }) => isActive ? activeStyle : undefined }
+                    >
+                        <div className={styles.menuItemContainer}>
+                            <MenuItem title = {item.title} url = {item.url} />
+                        </div>
+                    </NavLink>)
+                }
+ 
             </div>
 
             <button className={styles.aboutButton} onClick={handleClick}>About this project</button>

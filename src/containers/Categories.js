@@ -6,7 +6,7 @@ export const Categories = ({categories, setMode, updateCategories}) => {
     return (
         <div className={styles.categories}>
             
-            <section className={styles.categories__categoriesContainer}>
+            <section className={styles.categoriesContainer}>
                 
                 {
                     categories.length > 0 && categories.map( category => {
@@ -18,7 +18,7 @@ export const Categories = ({categories, setMode, updateCategories}) => {
                     })
                 }
             </section>
-            <button className={styles.categories__showButton} onClick={()=> setMode('movies') }>Show movies</button>    
+            <button className={styles.showButton} onClick={()=> setMode('movies') }>Show movies</button>    
         </div>
         
     )

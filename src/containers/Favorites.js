@@ -55,7 +55,7 @@ export const Favorites = () => {
             </Modal>
             {
                 favorites.length === 0 && 
-                    <h3 className={styles.favorites__placeholder}>
+                    <h3 className={styles.placeholder}>
                         No favorites yet. Go to <span>Discover, </span> 
                         <span>Search</span> or <span>Trending</span> and Click your favorite movies.
                         Then you will see them here.
