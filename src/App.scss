@@ -4,9 +4,15 @@
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 12% 88%;
+
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 10% 75% 5%;
+        //align-items: stretch;
+    }
     
 }
 
-.altLayout {
+/* .altLayout {
     grid-template-columns: 8% 92%;
-}
+} */

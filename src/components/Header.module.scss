@@ -15,4 +15,15 @@
         width: 32rem;
         padding-left: 2rem;
     }
+
+    @media only screen and (max-width: 600px) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+        
+        .logoContainer {
+            width: 16rem;
+            //padding-left: 2rem;
+        }
+    }
 }
