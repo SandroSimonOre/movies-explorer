@@ -33,12 +33,13 @@ export const Sidebar = () => {
             <div className={styles.menuContainer}>
 
                 {
-                    menuItems.map( item => 
+                    menuItems.map( (item, i) => 
                     <NavLink 
+                        key={i} 
                         to = {item.to} 
                         style={({ isActive }) => isActive ? activeStyle : undefined }
                     >
-                        <div className={styles.menuItemContainer}>
+                        <div className={styles.menuItemContainer} >
                             <MenuItem title = {item.title} url = {item.url} />
                         </div>
                     </NavLink>)
