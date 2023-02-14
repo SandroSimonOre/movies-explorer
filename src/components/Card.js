@@ -1,5 +1,5 @@
 import { WaterMark } from "./WaterMark"; 
-import styles from './Card.module.scss';
+import styles from '../styles/Card.module.scss';
 
 export const Card = ({ movie, basePath, handleClick, withWaterMark }) => {
     

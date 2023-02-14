@@ -12,7 +12,7 @@ import { useModal } from "../hooks/useModal";
 import { searchMovies } from "../services/getAPIData";
 import { v4 as uuidv4 } from 'uuid';
 
-import styles from './Search.module.scss';
+import styles from '../styles/Search.module.scss';
 
 export const Search = () => {
 

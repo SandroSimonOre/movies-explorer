@@ -7,7 +7,7 @@ import {Modal} from '../components/Modal';
 import {useModal} from "../hooks/useModal";
 import { v4 as uuidv4 } from 'uuid';
 
-import styles from  './Trending.module.scss';
+import styles from  '../styles/Trending.module.scss';
 
 export const Trending = () => {
     const [loading, setLoading] = useState(true);

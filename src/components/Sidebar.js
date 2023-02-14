@@ -3,7 +3,7 @@ import {MenuItem} from './MenuItem';
 import { About } from "./About";
 import { Modal } from '../components/Modal';
 import { useModal } from "../hooks/useModal";
-import styles from './Sidebar.module.scss'
+import styles from '../styles/Sidebar.module.scss'
 
 export const Sidebar = () => {
     

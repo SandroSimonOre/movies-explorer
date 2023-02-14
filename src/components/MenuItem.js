@@ -1,4 +1,4 @@
-import styles from './MenuItem.module.scss';
+import styles from '../styles/MenuItem.module.scss';
 
 export const MenuItem = ({url, title}) => {
 

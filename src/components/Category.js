@@ -1,4 +1,4 @@
-import styles from './Category.module.scss';
+import styles from '../styles/Category.module.scss';
 
 export const Category = ({category, updateCategories}) => {
     

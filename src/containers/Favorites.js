@@ -5,7 +5,7 @@ import { MovieInfo } from '../components/MovieInfo';
 import { Modal } from '../components/Modal';
 import { useModal } from '../hooks/useModal';
 import { FavoritesContext } from '../store/FavoritesProvider';
-import styles from './Favorites.module.scss'
+import styles from '../styles/Favorites.module.scss'
 
 export const Favorites = () => {
 

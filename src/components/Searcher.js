@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Searcher.module.scss'
+import styles from '../styles/Searcher.module.scss'
 
 export const Searcher = ({setSearchText}) => {
 

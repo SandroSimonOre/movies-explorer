@@ -10,7 +10,7 @@ import { Modal } from '../components/Modal';
 import { useModal } from "../hooks/useModal";
 import { v4 as uuidv4 } from 'uuid';
 import { searchMovies } from '../services/getAPIData';
-import styles from './Movies.module.scss';
+import styles from '../styles/Movies.module.scss';
 
 export const Movies = ({categories, setMode}) => {
 

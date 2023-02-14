@@ -1,4 +1,4 @@
-import styles from './WaterMark.module.scss';
+import styles from '../styles/WaterMark.module.scss';
 
 export const WaterMark = ({text}) => {
     

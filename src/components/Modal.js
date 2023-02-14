@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import styles from './Modal.module.scss'
+import styles from '../styles/Modal.module.scss'
 
 export const Modal = ({isOpen, closeModal, children}) => {
     

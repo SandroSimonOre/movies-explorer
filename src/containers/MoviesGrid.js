@@ -1,4 +1,4 @@
-import styles from './MoviesGrid.module.scss';
+import styles from '../styles/MoviesGrid.module.scss';
 export const MoviesGrid = ({children}) => {
 
     return (

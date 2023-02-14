@@ -7,7 +7,7 @@ import { Favorites } from './containers/Favorites';
 import { Trending } from './containers/Trending';
 import { Search } from "./containers/Search";
 import { FavoritesProvider } from './store/FavoritesProvider';
-import './App.scss'
+import '../src/styles/App.scss'
 
 export const App = () => {
 

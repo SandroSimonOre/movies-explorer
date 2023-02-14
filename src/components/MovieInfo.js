@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { getOneMovie } from "../services/getOneMovie";
 import { FavoritesContext } from '../store/FavoritesProvider';
-import styles from './MovieInfo.module.scss';
+import styles from '../styles/MovieInfo.module.scss';
 
 export const MovieInfo = ({movieId, basePath, closeWindow}) => {
     

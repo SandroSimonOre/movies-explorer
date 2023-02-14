@@ -3,7 +3,7 @@ import {Categories} from './Categories';
 import { Movies } from './Movies';
 import { useEffect } from 'react';
 import { searchMovies } from '../services/getAPIData';
-import styles from './Discover.module.scss';
+import styles from '../styles/Discover.module.scss';
 
 export const Discover = () => {
     const [mode, setMode] = useState('categories');

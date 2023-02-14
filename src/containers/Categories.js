@@ -1,5 +1,5 @@
 import { Category } from '../components/Category';
-import styles from './Categories.module.scss';
+import styles from '../styles/Categories.module.scss';
 
 export const Categories = ({categories, setMode, updateCategories}) => {
     
